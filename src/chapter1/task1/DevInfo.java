@@ -10,14 +10,17 @@ public class DevInfo {
 
     public static void main (String args []){
         String name = "Petrov";
-        Date date = new Date();
-        System.out.println("Developer " + name);
-        System.out.println("Date and time of receipt of the task: " + date);
+        Date current = new Date();
 
-        Calendar c = Calendar.getInstance();
-        c.set(Calendar.YEAR, 2022);
-        c.set(Calendar.MONTH, Calendar.JUNE);
-        c.set(Calendar.DAY_OF_MONTH, 07);
-        System.out.println("Date and time of assignment of the task: " + c.getTime());
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.YEAR, 2022);
+        calendar.set(Calendar.MONTH, 5);
+        calendar.set(Calendar.DATE, 7);
+        Date date = calendar.getTime();
+
+        System.out.println("Developer " + name);
+        System.out.println("Date and time of receipt of the task: " + current);
+        System.out.println("Date and time of assignment of the task: " + date);
+
     }
 }

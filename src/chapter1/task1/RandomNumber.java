@@ -2,16 +2,13 @@
 на новую строку. */
 
 package chapter1.task1;
-
-
 public class RandomNumber {
     public static void main(String[] args) {
-        int a = 0;
-        int b = 100;
-        for (int i = 0; i < 10; i++) {
-            int random_number = a + (int) (Math.random() * b);
-            System.out.println("Random number: " + random_number + ";");
-//            System.out.print(" Random Number: " + random_number + ";");
+        int[] a = {1, 2, 3, 4, 5};
+
+        for (int i : a) {
+            System.out.println(i);
+            System.out.print(i);
         }
     }
 }

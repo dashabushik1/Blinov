@@ -2,7 +2,6 @@
 
 package chapter1.task2;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class EvenOddNumbers {
@@ -11,15 +10,15 @@ public class EvenOddNumbers {
 
         System.out.println("Enter integers: ");
         int n = scanner.nextInt(); // считываем числа
-        int[] allNumbers = new int[n]; // создаем массив размером n
+        int[] allNumbers = new int[n];
 
 
         for (int i = 0; i < allNumbers.length; i++) {
-            allNumbers[i] = scanner.nextInt(); // помещаем все введенные числа в массив
+            allNumbers[i] = scanner.nextInt();
         }
 
         int[] masOdd = new int[n];
-        int[] masEven = new int[n]; //создаем массивы для четных и нечет чисел
+        int[] masEven = new int[n]; //создаем массивы для четных и нечетных чисел
 
         int oddIndex = 0;
         int evenIndex = 0; //создаем счетчики текущего элемента

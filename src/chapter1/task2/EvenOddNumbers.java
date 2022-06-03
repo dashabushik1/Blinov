@@ -33,9 +33,19 @@ public class EvenOddNumbers {
                 oddIndex++;
             }
         }
-            System.out.println("Even numbers: " + Arrays.toString(masEven));
-            System.out.println("Odd numbers: " + Arrays.toString(masOdd));
+
+        System.out.print("Even numbers: ");
+        for (int i = 0; i < evenIndex; i++) {
+            System.out.print(masEven[i] + " ");
         }
+
+        System.out.println(" ");
+        System.out.print("Odd numbers: ");
+        for (int i = 0; i < oddIndex; i++) {
+            System.out.print(masOdd[i] + " ");
+        }
+
+    }
 }
 
 

@@ -1,25 +1,31 @@
-/* 3. Введите с консоли n целых чисел. На консоль вывести числа, которые делятся на 3 или на 9. */
+/* 3. Р’РІРµСЃС‚Рё СЃ РєРѕРЅСЃРѕР»Рё n С†РµР»С‹С… С‡РёСЃРµР». РќР° РєРѕРЅСЃРѕР»СЊ РІС‹РІРµСЃС‚Рё С‡РёСЃР»Р°, РєРѕС‚РѕСЂС‹Рµ РґРµР»СЏС‚СЃСЏ РЅР° 3 Рё РЅР° 9. */
 
 package chapter1.task2;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class DivByThree {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter numbers: ");
+        System.out.println("Enter quantity of integers: ");
         int n = scanner.nextInt();
         int[] allNumbers = new int[n];
 
-        for (int i = 0; i < allNumbers.length; i++) {
-            allNumbers[i] = scanner.nextInt();
+        int numIndex = 0;
+
+        for (int i = 0; i < n; i++) {
+            int x = scanner.nextInt();
+            if ((x % 3 == 0) || (x % 9 == 0)) {
+                allNumbers[numIndex] = x;
+                numIndex++;
+            }
         }
 
-
-
-
-        for (int i = 0; i < ; i++) {
-
+        System.out.println("Numbers that are divisible by 3 and by 9: ");
+        for (int i = 0; i < numIndex; i++) {
+            System.out.println(allNumbers[i]);
         }
+    }
 }

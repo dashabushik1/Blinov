@@ -1,4 +1,4 @@
-/* Ввести с консоли n целых чисел. На консоль вывести четные и нечетные числа.*/
+/* 1. Р’РІРµСЃС‚Рё СЃ РєРѕРЅСЃРѕР»Рё n С†РµР»С‹С… С‡РёСЃРµР». РќР° РєРѕРЅСЃРѕР»СЊ РІС‹РІРµСЃС‚Рё С‡РµС‚РЅС‹Рµ Рё РЅРµС‡РµС‚РЅС‹Рµ С‡РёСЃР»Р°.*/
 
 package chapter1.task2;
 
@@ -9,22 +9,21 @@ public class EvenOddNumbers {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter integers: ");
-        int n = scanner.nextInt(); // считываем числа
+        int n = scanner.nextInt();
         int[] allNumbers = new int[n];
-
 
         for (int i = 0; i < allNumbers.length; i++) {
             allNumbers[i] = scanner.nextInt();
         }
 
         int[] masOdd = new int[n];
-        int[] masEven = new int[n]; //создаем массивы для четных и нечетных чисел
+        int[] masEven = new int[n];
 
         int oddIndex = 0;
-        int evenIndex = 0; //создаем счетчики текущего элемента
+        int evenIndex = 0;
 
-        for (int i = 0; i < n; i++) {
-            if (allNumbers[i] % 2 == 0) {
+        for (int i = 0; i < allNumbers.length; i++) {
+            if (allNumbers[i] % 3 == 0) {
                 masEven[evenIndex] = allNumbers[i];
                 evenIndex++;
             } else {

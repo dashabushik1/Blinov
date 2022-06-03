@@ -1,4 +1,4 @@
-/* 2. Введите с консоли n целых чисел. На консоль вывести максимальное и минимальное значения.*/
+/* 2. Р’РІРµСЃС‚Рё СЃ РєРѕРЅСЃРѕР»Рё n С†РµР»С‹С… С‡РёСЃРµР». РќР° РєРѕРЅСЃРѕР»СЊ РІС‹РІРµСЃС‚Рё РЅР°РёР±РѕР»СЊС€РµРµ Рё РЅР°РёРјРµРЅСЊС€РµРµ С‡РёСЃР»Рѕ.*/
 
 package chapter1.task2;
 
@@ -18,13 +18,13 @@ public class MaxMinNumbers {
             allNumbers[i] = scanner.nextInt();
         }
 
-        Arrays.sort(allNumbers); //сортируем все введенные числа по возрастанию с помощью функции Arrays.sort
+        Arrays.sort(allNumbers);
 
-        System.out.println("All entered numbers after sorting: " + Arrays.toString(allNumbers)); // выводим результат на консоль
+        System.out.println("All entered numbers after sorting: " + Arrays.toString(allNumbers));
 
-        int max = allNumbers[allNumbers.length - 1]; // max максимальное число
+        int max = allNumbers[allNumbers.length - 1];
 
-        System.out.println("Max number: " + max);
+        System.out.println("Р±РѕР»СЊС€РµРµ С‡РёСЃР»Рѕ: " + max);
         System.out.println("Min number: " + allNumbers[0]);
 
     }

@@ -6,11 +6,11 @@ package chapter1.task1;
 import java.util.Scanner;
 
 public class SumMultiply {
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
         for (int i = 0; true; i++) {
-            System.out.println("Enter numbers: ");
+            System.out.println("Enter two numbers: ");
             int x = scanner.nextInt();
             int y = scanner.nextInt();
 

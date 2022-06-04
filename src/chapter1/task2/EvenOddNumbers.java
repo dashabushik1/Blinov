@@ -3,7 +3,6 @@
 package chapter1.task2;
 
 import java.util.Scanner;
-
 public class EvenOddNumbers {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

@@ -3,6 +3,7 @@
 package chapter1.task1;
 
 import java.util.Scanner;
+
 public class ComparePassword {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

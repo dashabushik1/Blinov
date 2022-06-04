@@ -2,7 +2,6 @@
 
 package chapter1.task1;
 
-import java.util.Arrays;
 public class RandomNumber {
     public static void main(String[] args) {
         int a = 0;

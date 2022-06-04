@@ -4,6 +4,7 @@ package chapter1.task2;
 
 import java.util.Scanner;
 import java.util.Arrays;
+
 public class MaxMinNumbers {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

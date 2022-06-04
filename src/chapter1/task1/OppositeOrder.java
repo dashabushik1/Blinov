@@ -3,6 +3,7 @@
 package chapter1.task1;
 
 import java.util.Scanner;
+
 public class OppositeOrder {
     public static void main(String[] args) {
         Scanner number = new Scanner(System.in);

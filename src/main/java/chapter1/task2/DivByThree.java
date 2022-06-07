@@ -8,7 +8,7 @@ public class DivByThree {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter quantity of integers: ");
+        System.out.println("Enter integers: ");
         int n = scanner.nextInt();
         int[] allNumbers = new int[n];
 

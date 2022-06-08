@@ -1,4 +1,4 @@
-/* 3. Ввести с консоли n целых чисел. На консоль вывести числа, которые делятся на 3 и на 9. */
+/* 3. Ввести с консоли n целых чисел. На консоль вывести числа, которые делятся на 3 или на 9. */
 
 package chapter1.task2;
 
@@ -22,7 +22,7 @@ public class DivByThree {
             }
         }
 
-        System.out.println("Numbers that are divisible by 3 and by 9: ");
+        System.out.println("Numbers that are divisible by 3 or by 9: ");
         for (int i = 0; i < numIndex; i++) {
             System.out.println(allNumbers[i]);
         }

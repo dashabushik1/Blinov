@@ -10,7 +10,7 @@ public class OppositeOrder {
         System.out.println("Enter numbers: ");
 
         for (int i = 0; true; i++) {
-            StringBuffer sb = new StringBuffer(number.nextLine()); // StringBuffer() - резервирует место под 16 символов без перераспределения памяти
+            StringBuffer sb = new StringBuffer(number.nextLine());
             sb.reverse(); // метод reverse позволяет изменить порядок слов на обратный
 
             System.out.println("Reverse: " + sb.toString());

@@ -12,6 +12,9 @@ public class DivByThree {
         int n = scanner.nextInt();
         int[] allNumbers = new int[n];
 
+        for (int i = 0; i < allNumbers.length; i++) {
+            allNumbers[i] = scanner.nextInt(); // Заполняем массив элементами, введёнными с клавиатуры
+        }
 
         int numIndex = 0;
 

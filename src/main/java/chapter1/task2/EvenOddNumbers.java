@@ -8,16 +8,17 @@ public class EvenOddNumbers {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter integers: ");
-        int n = scanner.nextInt();
-        int[] allNumbers = new int[n];
+        System.out.println("Enter number of digits: ");
+        int size = scanner.nextInt();
+        System.out.println("Enter numbers: ");
+        int[] allNumbers = new int[size];
 
         for (int i = 0; i < allNumbers.length; i++) {
             allNumbers[i] = scanner.nextInt();
         }
 
-        int[] masOdd = new int[n];
-        int[] masEven = new int[n];
+        int[] masOdd = new int[size];
+        int[] masEven = new int[size];
 
         int oddIndex = 0;
         int evenIndex = 0;

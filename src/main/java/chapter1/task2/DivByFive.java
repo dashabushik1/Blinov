@@ -8,9 +8,10 @@ public class DivByFive {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter integers: ");
-        int n = scanner.nextInt();
-        int[] allNumbers = new int[n];
+        System.out.println("Enter number of digits: ");
+        int size = scanner.nextInt();
+        System.out.println("Enter numbers: ");
+        int[] allNumbers = new int[size];
 
         for (int i = 0; i < allNumbers.length; i++) {
             allNumbers[i] = scanner.nextInt(); // Заполняем массив элементами, введёнными с клавиатуры
@@ -18,7 +19,7 @@ public class DivByFive {
 
         int numIndex = 0;
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < size; i++) {
             int x = scanner.nextInt();
             if ((x % 5 == 0) && (x % 7 == 0)) {
                 allNumbers[numIndex] = x;

@@ -9,8 +9,9 @@ public class ThreeDigitNumber {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter integers: ");
+        System.out.println("Enter number of digits: ");
         String n = scanner.nextLine();
+        System.out.println("Enter numbers: ");
         String[] allNumbers = new String[Integer.parseInt(n)];
 
         for (int i = 0; i < Integer.parseInt(n); i++) {

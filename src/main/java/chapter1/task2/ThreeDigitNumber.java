@@ -3,8 +3,6 @@
 
 package chapter1.task2;
 
-
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class ThreeDigitNumber {
@@ -26,7 +24,7 @@ public class ThreeDigitNumber {
             if ((int) Math.log10(Math.abs(Integer.parseInt(sourceNumber))) + 1 == 3) {
                 number = sourceNumber;
                 if ((number.charAt(0) != number.charAt(1))
-                        && (number.charAt(1) != number.charAt(2))
+                        && (number.charAt(1) != number.charAt(2))  // Метод charAt() — возвращает символ, расположенный по указанному индексу строки.
                         && (number.charAt(0) != number.charAt(2))) {
                     System.out.print(sourceNumber + " ");
                 }

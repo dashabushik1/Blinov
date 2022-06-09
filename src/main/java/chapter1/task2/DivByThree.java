@@ -12,6 +12,7 @@ public class DivByThree {
         int n = scanner.nextInt();
         int[] allNumbers = new int[n];
 
+
         int numIndex = 0;
 
         for (int i = 0; i < n; i++) {

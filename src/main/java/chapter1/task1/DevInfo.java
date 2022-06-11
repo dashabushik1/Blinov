@@ -11,11 +11,11 @@ public class DevInfo {
         String name = "Petrov";
         Date current = new Date(); // инициализация объекта date (выводит текущее время)
 
-        Calendar calendar = Calendar.getInstance(); // создаем календарь
-        calendar.set(Calendar.YEAR, 2022); // изменяем год
-        calendar.set(Calendar.MONTH, 5); // изменяем месяц
-        calendar.set(Calendar.DATE, 7); // изменяем день
-        Date date = calendar.getTime(); // отображаем введенную дату
+        Calendar calendar = Calendar.getInstance(); // создаем объект календаря
+        calendar.set(Calendar.YEAR, 2022); // устанавливаем год
+        calendar.set(Calendar.MONTH, 5); // устанавливаем месяц
+        calendar.set(Calendar.DATE, 7); // устанавливаем день
+        Date date = calendar.getTime(); // создаем объект с указанным временем
 
         System.out.println("Developer: " + name);
         System.out.println("Date and time of receipt of the task: " + current);

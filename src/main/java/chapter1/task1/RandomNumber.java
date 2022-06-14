@@ -1,8 +1,10 @@
-/* 3. Вывести заданное количество случайных чисел с переходом и без перехода на новую строку. */
-
+/**
+ * 3. Вывести заданное количество случайных чисел с переходом и без перехода на новую строку.
+ */
 package chapter1.task1;
 
 public class RandomNumber {
+
     public static void main(String[] args) {
         int a = 0;
         int b = 100;
@@ -12,7 +14,6 @@ public class RandomNumber {
             int number = (a + (int) (Math.random() * b));
             System.out.print(number + " ");
         }
-
         System.out.println(" ");
         System.out.print("Random numbers: ");
         System.out.println(" ");

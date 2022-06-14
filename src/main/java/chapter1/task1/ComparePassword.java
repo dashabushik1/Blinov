@@ -1,23 +1,22 @@
-/* 4. Ввести пароль из командной строки и сравнить его со строкой-образцом.*/
-
+/**
+ * 4. Ввести пароль из командной строки и сравнить его со строкой-образцом.
+ */
 package chapter1.task1;
 
-import java.util.Scanner;
-
 public class ComparePassword {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter password: ");
-        String password1 = scanner.next();
-        String password2 = "11111";
 
-        if (password1.equals(password2)) {
+    public static void main(String[] args) {
+        String stringSample = "11111";
+        String stringInput = args[0];
+
+        if (stringInput.equals(stringSample)) {
             System.out.println("Passwords match");
         } else {
             System.out.println("Passwords don't match");
         }
     }
 }
+
 
 
 

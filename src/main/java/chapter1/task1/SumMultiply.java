@@ -1,21 +1,20 @@
-/* 5. Ввести целые числа как аргументы командной строки, подсчитать их сум-
-мы и произведения. Вывести результат на консоль. */
-
+/**
+ * 5. Ввести целые числа как аргументы командной строки, подсчитать их сум-
+ * мы и произведения. Вывести результат на консоль.
+ */
 package chapter1.task1;
 
-import java.util.Scanner;
-
 public class SumMultiply {
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        for (int i = 0; true; i++) {
-            System.out.println("Enter two numbers: ");
-            int x = scanner.nextInt();
-            int y = scanner.nextInt();
+        int firstNumber = Integer.parseInt(args[0]);
+        int secondNumber = Integer.parseInt(args[1]);
 
-            System.out.println("Sum is " + (x + y));
-            System.out.println("Multiplication is " + (x * y));
-        }
+        int sum = firstNumber + secondNumber;
+        int multiply = firstNumber * secondNumber;
+
+        System.out.println("Sum: " + sum);
+        System.out.println("Multiply: " + multiply);
     }
 }

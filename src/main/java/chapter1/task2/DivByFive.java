@@ -1,37 +1,17 @@
-/* 4. Ввести с консоли n целых чисел. На консоль вывести числа, которые делятся на 5 и на 7.*/
-
+/**
+ * 4. Ввести с консоли n целых чисел. На консоль вывести числа, которые делятся на 5 и на 7.
+ */
 package chapter1.task2;
 
-import java.util.Scanner;
-
 public class DivByFive {
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter number of digits: ");
-        int size = scanner.nextInt();
-        System.out.println("Enter numbers: ");
-        int[] allNumbers = new int[size];
-
-        for (int i = 0; i < allNumbers.length; i++) {
-            allNumbers[i] = scanner.nextInt(); // Заполняем массив элементами, введёнными с клавиатуры
-        }
-
-        int numIndex = 0;
-
-        for (int i = 0; i < size; i++) {
-            int x = scanner.nextInt();
-            if ((x % 5 == 0) && (x % 7 == 0)) {
-                allNumbers[numIndex] = x;
-                numIndex++;
+        System.out.print("Numbers that are divisible by 5 and by 7: ");
+        for (int i = 0; i < args.length; i++) {
+            if ((Integer.parseInt(args[i]) % 5 == 0) && (Integer.parseInt(args[i]) % 7 == 0)) {
+                System.out.print(args[i] + " ");
             }
         }
-
-        System.out.println("Numbers that are divisible by 5 and by 7: ");
-        for (int i = 0; i < numIndex; i++) {
-            System.out.println(allNumbers[i]);
-        }
     }
-
-
 }

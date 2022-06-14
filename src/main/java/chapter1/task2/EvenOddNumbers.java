@@ -1,54 +1,38 @@
-/* 1. Ввести с консоли n целых чисел. На консоль вывести четные и нечетные числа.*/
-
+/**
+ * 1. Ввести с консоли n целых чисел. На консоль вывести четные и нечетные числа.
+ */
 package chapter1.task2;
 
-import java.util.Scanner;
-
 public class EvenOddNumbers {
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter number of digits: ");
-        int size = scanner.nextInt();
-        System.out.println("Enter numbers: ");
-        int[] allNumbers = new int[size];
+        int[] masEven = new int[args.length];
+        int[] masOdd = new int[args.length];
 
-        for (int i = 0; i < allNumbers.length; i++) {
-            allNumbers[i] = scanner.nextInt();
-        }
-
-        int[] masOdd = new int[size];
-        int[] masEven = new int[size];
-
-        int oddIndex = 0;
         int evenIndex = 0;
+        int oddIndex = 0;
 
-        for (int i = 0; i < allNumbers.length; i++) {
-            if (allNumbers[i] % 3 == 0) {
-                masEven[evenIndex] = allNumbers[i];
+        for (int i = 0; i < args.length; i++) {
+            if ((Integer.parseInt(args[i]) % 2 == 0)) {
+                masEven[evenIndex] = Integer.parseInt(args[i]);
                 evenIndex++;
             } else {
-                masOdd[oddIndex] = allNumbers[i];
+                masOdd[oddIndex] = Integer.parseInt(args[i]);
                 oddIndex++;
             }
         }
 
-        System.out.print("Even numbers: ");
+        System.out.println("Even numbers: ");
         for (int i = 0; i < evenIndex; i++) {
-            System.out.print(masEven[i] + " ");
+            System.out.println(masEven[i] + " ");
         }
 
-        System.out.println(" ");
-        System.out.print("Odd numbers: ");
+        System.out.println("Odd numbers: ");
         for (int i = 0; i < oddIndex; i++) {
-            System.out.print(masOdd[i] + " ");
+            System.out.println(masOdd[i] + " ");
         }
-
     }
 }
-
-
-
-
 
 

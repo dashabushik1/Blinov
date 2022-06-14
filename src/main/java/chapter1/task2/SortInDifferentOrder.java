@@ -1,36 +1,43 @@
-/* 7.Ввести с консоли n целых чисел. На консоль вывести отсортированные числа в порядке возрастания и убывания. */
-
+/**
+ * 7.Ввести с консоли n целых чисел. На консоль вывести отсортированные числа в порядке возрастания и убывания.
+ */
 package chapter1.task2;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
-import java.util.stream.Collectors;
-
-
 public class SortInDifferentOrder {
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter number of digits: ");
-        int size = scanner.nextInt();
-        System.out.println("Enter numbers: ");
-        int[] allNumbers = new int[size];
-
-
-        for (int i = 0; i < allNumbers.length; i++) {
-            allNumbers[i] = scanner.nextInt();
+        int[] masSorted = new int[args.length];
+        for (int i = 0; i < args.length; i++) {
+            masSorted[i] = Integer.parseInt(args[i]);
         }
 
-        System.out.println("Sort Ascending: ");
-        Arrays.sort(allNumbers);
-        System.out.println(Arrays.toString(allNumbers));
+        int value = 0;
+        System.out.print("Ascending order: ");
+        for (int i = 0; i < masSorted.length; i++) {
+            for (int j = i + 1; j < masSorted.length; j++) {
+                if (masSorted[i] > masSorted[j]) {
+                    value = masSorted[j];
+                    masSorted[j] = masSorted[i];
+                    masSorted[i] = value;
+                }
+            }
+            System.out.print(masSorted[i] + " ");
+        }
 
+        int value2 = 0;
         System.out.println(" ");
-        System.out.println("Sort descending: ");
-        List<Integer> allNumbers2 = Arrays.stream(allNumbers).boxed().collect(Collectors.toList());
-        Collections.sort(allNumbers2, Collections.reverseOrder());
-        System.out.println(allNumbers2);
+        System.out.print("Descending order: ");
+        for (int i = 0; i < masSorted.length; i++) {
+            for (int j = i + 1; j < masSorted.length; j++) {
+                if (masSorted[i] < masSorted[j]) {
+                    value2 = masSorted[j];
+                    masSorted[j] = masSorted[i];
+                    masSorted[i] = value2;
+                }
+            }
+            System.out.print(masSorted[i] + " ");
+        }
     }
 }
+

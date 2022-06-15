@@ -8,17 +8,23 @@ public class ThreeDigitNumber {
 
     public static void main(String[] args) {
 
-        String number;
-        System.out.println("All three-digit numbers that don't have the same decimal notation numbers:  ");
-        for (String sourceNumber : args) {
-            number = sourceNumber;
-            if ((int) Math.log10(Math.abs(Integer.parseInt(sourceNumber))) + 1 == 3) {
-                if ((sourceNumber.charAt(0)) != (sourceNumber.charAt(1))
-                        && (sourceNumber.charAt(1) != sourceNumber.charAt(2))
-                        && (sourceNumber.charAt(0) != sourceNumber.charAt(2))) {
-                    System.out.println(sourceNumber + " ");
+        int[] sortedNumbers = new int[args.length];
+        for (int i = 0; i < args.length; i++) {
+            sortedNumbers[i] = Integer.parseInt(args[i]);
+
+            if ((sortedNumbers[i] < 1000) && (sortedNumbers[i] > 99)) {
+                int number = sortedNumbers[i];
+
+                int digit1 = number % 10;
+                int digit2 = (number % 100) / 10;
+                int digit3 = (number % 1000) / 100;
+
+                if (digit1 != digit2 && digit1 != digit3 && digit2 != digit3) {
+                    System.out.println(sortedNumbers[i] + " ");
                 }
             }
         }
     }
 }
+
+

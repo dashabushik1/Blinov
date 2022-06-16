@@ -11,7 +11,7 @@ public class ThreeDigitNumber {
         for (int i = 0; i < args.length; i++) {
             sortedNumbers[i] = Integer.parseInt(args[i]);
 
-            if ((sortedNumbers[i] < 1000) && (sortedNumbers[i] > 99)) {
+            if ((sortedNumbers[i] < 1000) && (sortedNumbers[i] > 99)) {  // только трехзначные числа
                 int number = sortedNumbers[i];
 
                 int digit1 = number % 10;

@@ -12,12 +12,12 @@ public class SortInDifferentOrder {
             masSorted[i] = Integer.parseInt(args[i]);
         }
 
-        int value = 0;
+
         System.out.print("Ascending order: ");
         for (int i = 0; i < masSorted.length; i++) {
             for (int j = i + 1; j < masSorted.length; j++) {
                 if (masSorted[i] > masSorted[j]) {
-                    value = masSorted[j];
+                    int value = masSorted[j];
                     masSorted[j] = masSorted[i];
                     masSorted[i] = value;
                 }
@@ -25,18 +25,20 @@ public class SortInDifferentOrder {
             System.out.print(masSorted[i] + " ");
         }
 
-        int value2 = 0;
         System.out.println(" ");
         System.out.print("Descending order: ");
         for (int i = 0; i < masSorted.length; i++) {
             for (int j = i + 1; j < masSorted.length; j++) {
                 if (masSorted[i] < masSorted[j]) {
-                    value2 = masSorted[j];
+                    int value = masSorted[j];
                     masSorted[j] = masSorted[i];
-                    masSorted[i] = value2;
+                    masSorted[i] = value;
                 }
             }
-            System.out.print(masSorted[i] + " ");
+
+            for (int j = 0; j < args.length; j++) {
+                System.out.print(masSorted[i] + " ");
+            }
         }
     }
 }

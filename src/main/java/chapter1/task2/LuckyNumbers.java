@@ -12,7 +12,7 @@ public class LuckyNumbers {
             inputNumbers[i] = Integer.parseInt(args[i]);
 
             int number = inputNumbers[i];
-            if ((inputNumbers[i] < 999999) && (inputNumbers[i] > 100000)) {   // 100000
+            if ((inputNumbers[i] < 999999) && (inputNumbers[i] > 100000)) {
 
                 int dig1 = number % 10;
                 int dig2 = (number % 100) / 10;

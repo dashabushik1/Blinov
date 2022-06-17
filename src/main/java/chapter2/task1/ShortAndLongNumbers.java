@@ -19,7 +19,6 @@ public class ShortAndLongNumbers {
                 if (inputNumbers[i] > inputNumbers[j]) {
                     int value = inputNumbers[i];
                     inputNumbers[i] = inputNumbers[j];
-                    inputNumbers[j] = inputNumbers[i];
                     inputNumbers[j] = value;
                 }
             }

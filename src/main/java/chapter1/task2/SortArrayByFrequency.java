@@ -36,6 +36,7 @@ public class SortArrayByFrequency {
                     x = inputNumbers[j];
                     inputNumbers[j] = inputNumbers[i];
                     inputNumbers[i] = x;
+
                 } else if ((duplicates[i] == duplicates[j]) && (inputNumbers[i] < inputNumbers[j])) {
                     int x = inputNumbers[j];
                     inputNumbers[j] = inputNumbers[i];

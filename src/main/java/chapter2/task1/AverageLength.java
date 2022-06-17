@@ -27,9 +27,10 @@ public class AverageLength {
             averageSize = sum / numberCounter.length;
         }
 
+        System.out.print("Numbers whose length is more than the average length of all numbers, and its length: ");
         for (int i = 0; i < numberCounter.length; i++) {
-            if (numberCounter[i] < averageSize) {
-                System.out.println(inputNumbers[i]);
+            if (numberCounter[i] > averageSize) {
+                System.out.print(inputNumbers[i] + "(" + numberCounter[i] + ")" + ";" + " ");
             }
         }
     }

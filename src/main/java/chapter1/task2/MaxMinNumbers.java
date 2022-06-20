@@ -7,25 +7,23 @@ public class MaxMinNumbers {
 
     public static void main(String[] args) {
 
-        int[] masSorted = new int[args.length];
-        for (int i = 0; i < args.length; i++) {
-            masSorted[i] = Integer.parseInt(args[i]);
+        if (args.length == 0) {
+            return;
         }
 
-        int value = 0;
-        for (int i = 0; i < masSorted.length; i++) {
-            for (int j = i + 1; j < masSorted.length; j++) {
-                if (masSorted[i] > masSorted[j]) {
-                    value = masSorted[j];
-                    masSorted[j] = masSorted[i];
-                    masSorted[i] = value;
-                }
+        int max = Integer.parseInt(args[0]);
+        int min = Integer.parseInt(args[0]);
+
+        for (int i = 1; i < args.length; i++) {
+            int x = Integer.parseInt(args[i]);
+            if (x > max) {
+                max = x;
+            } else if (x < min) {
+                min = x;
             }
         }
-
-        System.out.println("Min number is: " + masSorted[0]);
-
-        int maxNumber = masSorted[masSorted.length - 1];
-        System.out.println("Max number is: " + maxNumber);
+        System.out.print("Max number: " + max + " ");
+        System.out.println(" ");
+        System.out.print("Min number: " + min + " ");
     }
 }

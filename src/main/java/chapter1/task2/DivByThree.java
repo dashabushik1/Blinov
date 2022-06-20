@@ -7,11 +7,15 @@ public class DivByThree {
 
     public static void main(String[] args) {
 
-        System.out.print("Numbers that are divisible by 3 or by 9: ");
+        String value = "";
         for (int i = 0; i < args.length; i++) {
-            if ((Integer.parseInt(args[i]) % 3 == 0) || (Integer.parseInt(args[i]) % 9 == 0)) {
-                System.out.print(args[i] + " ");
+            // проверка
+            int z = Integer.parseInt(args[i]);
+            if ((z % 3 == 0) || (z % 9 == 0)) {
+                value += z + " ";
             }
         }
+
+        System.out.print("Numbers that are divisible by 3 or by 9: " + value);
     }
 }

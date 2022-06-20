@@ -7,11 +7,14 @@ public class DivByFive {
 
     public static void main(String[] args) {
 
-        System.out.print("Numbers that are divisible by 5 and by 7: ");
+        String value = "";
         for (int i = 0; i < args.length; i++) {
-            if ((Integer.parseInt(args[i]) % 5 == 0) && (Integer.parseInt(args[i]) % 7 == 0)) {
-                System.out.print(args[i] + " ");
+            // как сделать проверку?
+            int x = Integer.parseInt(args[i]);
+            if ((x % 5 == 0) && (x % 7 == 0)) {
+                value += x + " ";
             }
         }
+        System.out.print("Numbers that are divisible by 5 and by 7: " + value);
     }
 }

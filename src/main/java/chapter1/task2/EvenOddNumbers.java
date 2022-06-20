@@ -14,23 +14,25 @@ public class EvenOddNumbers {
         int oddIndex = 0;
 
         for (int i = 0; i < args.length; i++) {
-            if ((Integer.parseInt(args[i]) % 2 == 0)) {
-                masEven[evenIndex] = Integer.parseInt(args[i]);
+            int shift = Integer.parseInt(args[i]);
+            if (shift % 2 == 0) {
+                masEven[evenIndex] = shift;
                 evenIndex++;
             } else {
-                masOdd[oddIndex] = Integer.parseInt(args[i]);
+                masOdd[oddIndex] = shift;
                 oddIndex++;
             }
         }
 
-        System.out.println("Even numbers: ");
+        System.out.print("Even numbers: ");
         for (int i = 0; i < evenIndex; i++) {
-            System.out.println(masEven[i] + " ");
+            System.out.print(masEven[i] + " ");
         }
 
-        System.out.println("Odd numbers: ");
+        System.out.println(" ");
+        System.out.print("Odd numbers: ");
         for (int i = 0; i < oddIndex; i++) {
-            System.out.println(masOdd[i] + " ");
+            System.out.print(masOdd[i] + " ");
         }
     }
 }

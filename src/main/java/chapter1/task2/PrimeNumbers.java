@@ -10,10 +10,10 @@ public class PrimeNumbers {
         System.out.print("Prime numbers: ");
         for (int i = 0; i < args.length; i++) {
             boolean isPrime = true;
-            for (int j = 2; j < Integer.parseInt(args[i]); j++) {
-                if (Integer.parseInt(args[i]) % j == 0) {
+            int x = Integer.parseInt(args[i]);
+            for (int j = 2; j < x; j++) {
+                if (x % j == 0) {
                     isPrime = false;
-                    break;
                 }
             }
             if (isPrime) {

@@ -8,19 +8,19 @@ public class ThreeDigitNumber {
 
     public static void main(String[] args) {
 
-        int[] sortedNumbers = new int[args.length];
+        int[] masThreeDigitNumbers = new int[args.length];
         for (int i = 0; i < args.length; i++) {
-            sortedNumbers[i] = Integer.parseInt(args[i]);
+            masThreeDigitNumbers[i] = Integer.parseInt(args[i]);
 
-            if ((sortedNumbers[i] < 1000) && (sortedNumbers[i] > 99)) {  // только трехзначные числа
-                int number = sortedNumbers[i];
+            if ((masThreeDigitNumbers[i] < 1000) && (masThreeDigitNumbers[i] > 99)) {  // только трехзначные числа
+                int number = masThreeDigitNumbers[i];
 
-                int digit1 = number % 10;
-                int digit2 = (number % 100) / 10;
-                int digit3 = (number % 1000) / 100;
+                int numeric1 = number % 10;
+                int numeric2 = (number % 100) / 10;
+                int numeric3 = (number % 1000) / 100;
 
-                if (digit1 != digit2 && digit1 != digit3 && digit2 != digit3) {
-                    System.out.println(sortedNumbers[i] + " ");
+                if (numeric1 != numeric2 && numeric1 != numeric3 && numeric2 != numeric3) {
+                    System.out.println(masThreeDigitNumbers[i] + " ");
                 }
             }
         }

@@ -33,7 +33,6 @@ public class SortInDifferentOrder {
                     masSortedCopy[i] = value;
                 }
             }
-
         }
         System.out.println("Sorted numbers by ascending: " + Arrays.toString(masSorted));
         System.out.println("Sorted numbers by descending: " + Arrays.toString(masSortedCopy));

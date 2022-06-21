@@ -10,7 +10,7 @@ public class DevInfo {
 
     public static void main(String[] args) {
         String name = "Petrov";
-        Date currentDate = new Date();
+        Date currentDate = new Date();  // создание текущей даты
         Date endDate = new Date(122, 5, 22);
 
         System.out.println("Developer: " + name);

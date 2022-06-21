@@ -7,7 +7,7 @@ public class OppositeOrder {
 
     public static void main(String[] args) {
 
-        if (args.length == 0) {
+        if (args.length == 0) {  // проверка аргументов
             return;
         }
 

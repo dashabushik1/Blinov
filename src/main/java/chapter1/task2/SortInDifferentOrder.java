@@ -17,9 +17,9 @@ public class SortInDifferentOrder {
         for (int i = 0; i < masSorted.length; i++) {
             for (int j = i + 1; j < masSorted.length; j++) {
                 if (masSorted[i] > masSorted[j]) {
-                    int value = masSorted[j];
+                    int x = masSorted[j];
                     masSorted[j] = masSorted[i];
-                    masSorted[i] = value;
+                    masSorted[i] = x;
                 }
             }
         }
@@ -28,9 +28,9 @@ public class SortInDifferentOrder {
         for (int i = 0; i < masSortedCopy.length; i++) {
             for (int j = i + 1; j < masSortedCopy.length; j++) {
                 if (masSortedCopy[i] < masSortedCopy[j]) {
-                    int value = masSortedCopy[j];
+                    int z = masSortedCopy[j];
                     masSortedCopy[j] = masSortedCopy[i];
-                    masSortedCopy[i] = value;
+                    masSortedCopy[i] = z;
                 }
             }
         }

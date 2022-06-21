@@ -8,7 +8,7 @@ public class ComparePassword {
     public static void main(String[] args) {
 
         if (args.length == 0) {
-            System.out.println("Password not found.");
+            System.out.println("Password not found.");  // добавлена проверка
             return;
         }
 

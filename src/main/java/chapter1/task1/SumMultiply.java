@@ -8,7 +8,7 @@ public class SumMultiply {
 
     public static void main(String[] args) {
 
-        if (args.length < 2) {
+        if (args.length < 2) {  // проверка аргументов
             return;
         }
 

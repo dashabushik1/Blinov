@@ -8,13 +8,13 @@ public class HalfSumOfNeighboringElements {
 
     public static void main(String[] args) {
 
-        int[] inputNumbers = new int[args.length];
+        int[] inputArray = new int[args.length];
         for (int i = 0; i < args.length; i++) {
-            inputNumbers[i] = Integer.parseInt(args[i]);
+            inputArray[i] = Integer.parseInt(args[i]);
         }
         for (int i = 0; i < args.length - 2; i++) {
-            if (((inputNumbers[i]) + (inputNumbers[i + 2])) / 2 == inputNumbers[i + 1]) {
-                System.out.println(inputNumbers[i + 1] + " ");
+            if (((inputArray[i]) + (inputArray[i + 2])) / 2 == inputArray[i + 1]) {
+                System.out.println(inputArray[i + 1] + " ");
             }
         }
     }

@@ -15,8 +15,6 @@ public class DevInfo {
 
         endDate.setTime(currentDate.getTime() + 7 * 24 * 60 * 60 * 1000);
 
-
-
         System.out.println("Developer: " + name);
         System.out.println("Date and time of begin of the task: " + currentDate + ".");
         System.out.println("Date and time of end of the task: " + endDate + ".");

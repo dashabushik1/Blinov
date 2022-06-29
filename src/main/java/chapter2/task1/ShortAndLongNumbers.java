@@ -8,31 +8,33 @@ public class ShortAndLongNumbers {
 
     public static void main(String[] args) {
 
-        int[] inputNumbers = new int[args.length];
+        int[] numbers = new int[args.length];
         for (int i = 0; i < args.length; i++) {
-            inputNumbers[i] = Integer.parseInt(args[i]);
+            numbers[i] = Integer.parseInt(args[i]);
         }
 
         int[] numberCounter = new int[args.length];
+        int smallest = numbers[0];
+        int biggest = numbers[0];
+
         for (int i = 0; i < args.length; i++) {
-            for (int j = i + 1; j < args.length; j++) {
-                if (inputNumbers[i] > inputNumbers[j]) {
-                    int value = inputNumbers[i];
-                    inputNumbers[i] = inputNumbers[j];
-                    inputNumbers[j] = value;
-                }
+            if (numbers[i] > biggest) {
+                biggest = numbers[i];
+            } else if (numbers[i] < smallest) {
+                smallest = numbers[i];
             }
 
-            int number = inputNumbers[i];
-            while (number > 0) {
-                number /= 10;
+            while (numbers[i] > 0) {
+                numbers[i] /= 10;
                 numberCounter[i]++;
             }
         }
-        System.out.println("The max number is " + inputNumbers[inputNumbers.length - 1] + ", and its length is " + numberCounter[numberCounter.length - 1] + ".");
-        System.out.println("The min number is " + inputNumbers[0] + ", and its length is " + numberCounter[0] + ".");
+        System.out.println("The max number is " + biggest + ", and its length is " + numberCounter[numberCounter.length - 1] + ".");
+        System.out.println("The min number is " + smallest + ", and its length is " + numberCounter[0] + ".");
     }
 }
+
+
 
 
 

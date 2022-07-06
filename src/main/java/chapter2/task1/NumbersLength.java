@@ -9,7 +9,6 @@ public class NumbersLength {
     public static void main(String[] args) {
 
         String[] arr = new String[args.length];
-
         for (int i = 0; i < args.length; i++) {
             arr[i] = args[i];
         }

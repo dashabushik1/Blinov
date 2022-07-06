@@ -7,34 +7,27 @@ package chapter2.task1;
 public class ShortAndLongNumbers {
 
     public static void main(String[] args) {
+        int min = 10;
+        int max = 0;
 
-        int[] numbers = new int[args.length];
-        for (int i = 0; i < args.length; i++) {
-            numbers[i] = Integer.parseInt(args[i]);
-        }
+        String minStr = null;
+        String maxStr = null;
 
-        int[] numberCounter = new int[args.length];
-        int smallest = numbers[0];
-        int biggest = numbers[0];
-
-        for (int i = 0; i < args.length; i++) {
-            if (numbers[i] > biggest) {
-                biggest = numbers[i];
-            } else if (numbers[i] < smallest) {
-                smallest = numbers[i];
+        for (String element : args) {
+            if (element.length() < min) {
+                min = element.length();
+                minStr = element;
             }
-
-            while (numbers[i] > 0) {
-                numbers[i] /= 10;
-                numberCounter[i]++;
+            if (element.length() > max) {
+                max = element.length();
+                maxStr = element;
             }
         }
-        System.out.println("The max number is " + biggest + ", and its length is " + numberCounter[numberCounter.length - 1] + ".");
-        System.out.println("The min number is " + smallest + ", and its length is " + numberCounter[0] + ".");
+        System.out.println("The shortest number is  " + minStr + ", and its length is " + min
+                + ".\nThe longest number is " + maxStr + ", and its length is " + max
+                + ".");
     }
 }
-
-
 
 
 

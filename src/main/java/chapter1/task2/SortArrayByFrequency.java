@@ -4,53 +4,52 @@
  */
 package chapter1.task2;
 
+import java.util.Arrays;
+
 public class SortArrayByFrequency {
 
     public static void main(String[] args) {
 
-        int[] inputNumbers = new int[args.length];
-        for (int i = 0; i < args.length; i++) {
-            inputNumbers[i] = Integer.parseInt(args[i]);
-            System.out.print(inputNumbers[i] + " ");
-        }
+        String[] copy = new String[args.length];
+        int[] frequencyOfElements = new int[args.length];
 
-        System.out.println(" ");
-        int[] duplicates = new int[inputNumbers.length];
-        for (int i = 0; i < inputNumbers.length; i++) {
-            for (int j = 0; j < inputNumbers.length; j++) {
-                if (inputNumbers[i] == inputNumbers[j]) {
-                    duplicates[i]++;
+        try {
+            for (int i = 0; i < args.length; i++) {
+                copy[i] = args[i];
+
+                int[] frequencyOfElement = new int[10];
+
+                int element = Integer.parseInt(copy[i]);
+
+                while (element > 0) {
+                    ++frequencyOfElement[element % 10];
+                    element /= 10;
+                }
+
+                int theBiggerFrequency = frequencyOfElement[0];
+
+                for (int j = 1; j < frequencyOfElement.length; j++) {
+                    theBiggerFrequency = Math.max(theBiggerFrequency, frequencyOfElement[j]);
+                }
+
+                frequencyOfElements[i] = theBiggerFrequency;
+            }
+
+            for (int i = 0; i < frequencyOfElements.length; i++) {
+                for (int j = i + 1; j < frequencyOfElements.length; j++) {
+                    if (frequencyOfElements[i] < frequencyOfElements[j]) {
+                        int temp = frequencyOfElements[i];
+                        frequencyOfElements[i] = frequencyOfElements[j];
+                        frequencyOfElements[j] = temp;
+                        String stringTemp = copy[i];
+                        copy[i] = copy[j];
+                        copy[j] = stringTemp;
+                    }
                 }
             }
-            System.out.print(duplicates[i] + " ");
-        }
-
-        System.out.println(" ");
-        for (int i = 0; i < duplicates.length; i++) {
-            for (int j = i + 1; j < duplicates.length; j++) {
-                if (duplicates[i] < duplicates[j]) {
-                    int x = duplicates[j];
-                    duplicates[j] = duplicates[i];
-                    duplicates[i] = x;
-
-                    x = inputNumbers[j];
-                    inputNumbers[j] = inputNumbers[i];
-                    inputNumbers[i] = x;
-
-                } else if ((duplicates[i] == duplicates[j]) && (inputNumbers[i] < inputNumbers[j])) {
-                    int x = inputNumbers[j];
-                    inputNumbers[j] = inputNumbers[i];
-                    inputNumbers[i] = x;
-                }
-            }
-            System.out.print(inputNumbers[i] + " ");
-        }
-
-        System.out.println(" ");
-        for (int i = 0; i < args.length; i++) {
-            System.out.print(duplicates[i] + " ");
+            System.out.println(Arrays.toString(copy));
+        } catch (NumberFormatException e) {
+            System.err.println(e.getMessage());
         }
     }
 }
-
-

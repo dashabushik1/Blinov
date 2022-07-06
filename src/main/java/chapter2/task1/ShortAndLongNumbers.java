@@ -13,6 +13,7 @@ public class ShortAndLongNumbers {
         String minStr = null;
         String maxStr = null;
 
+        try {
         for (String element : args) {
             if (element.length() < min) {
                 min = element.length();
@@ -26,6 +27,9 @@ public class ShortAndLongNumbers {
         System.out.println("The shortest number is  " + minStr + ", and its length is " + min
                 + ".\nThe longest number is " + maxStr + ", and its length is " + max
                 + ".");
+    } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }
 

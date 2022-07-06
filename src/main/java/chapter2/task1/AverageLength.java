@@ -12,26 +12,31 @@ public class AverageLength {
 
         int[] inputNumbers = new int[args.length];
         int[] numberCounter = new int[args.length];
-        for (int i = 0; i < args.length; i++) {
-            inputNumbers[i] = Integer.parseInt(args[i]);
 
-            int number = inputNumbers[i];
-            while (number > 0) {
-                numberCounter[i]++;
-                number /= 10;
+        try {
+            for (int i = 0; i < args.length; i++) {
+                inputNumbers[i] = Integer.parseInt(args[i]);
+
+                int number = inputNumbers[i];
+                while (number > 0) {
+                    numberCounter[i]++;
+                    number /= 10;
+                }
             }
-        }
 
-        for (int i = 0; i < numberCounter.length; i++) {
-            sum += numberCounter[i];
-            averageSize = sum / numberCounter.length;
-        }
-
-        System.out.print("Numbers whose length is more than the average length of all numbers, and its length: ");
-        for (int i = 0; i < numberCounter.length; i++) {
-            if (numberCounter[i] > averageSize) {
-                System.out.print(inputNumbers[i] + "(" + numberCounter[i] + ")" + ";" + " ");
+            for (int i = 0; i < numberCounter.length; i++) {
+                sum += numberCounter[i];
+                averageSize = sum / numberCounter.length;
             }
+
+            System.out.print("Numbers whose length is more than the average length of all numbers, and its length: ");
+            for (int i = 0; i < numberCounter.length; i++) {
+                if (numberCounter[i] > averageSize) {
+                    System.out.print(inputNumbers[i] + "(" + numberCounter[i] + ")" + ";" + " ");
+                }
+            }
+        } catch (NumberFormatException e) {
+            throw new RuntimeException(e);
         }
     }
 }

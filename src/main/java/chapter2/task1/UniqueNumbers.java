@@ -29,6 +29,7 @@ public class UniqueNumbers {
         for (int j = 0; j < arrays[0].length; j++) {
             if (arrays[1][j] == minVarietyOfNumbers) {
                 System.out.print(arrays[0][j] + " ");
+                System.exit(1);
             }
         }
     }

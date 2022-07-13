@@ -25,6 +25,7 @@ public class DigitsInStrictAscendingOrder {
             }
             if (flag) {
                 System.out.println(value + " ");
+                System.exit(1);
             }
         }
     }

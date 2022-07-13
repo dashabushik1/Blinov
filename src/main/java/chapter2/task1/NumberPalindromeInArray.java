@@ -9,15 +9,15 @@ public class NumberPalindromeInArray {
     public static void main(String[] args) {
 
         for (int i = 0; i < args.length; i++) {
-            boolean flag = true;
+            boolean isPalindrome = true;
             for (int j = 0; j < args[i].length(); j++) {
                 if (args[i].charAt(j) !=
                         args[i].charAt(args[i].length() - j - 1)) {
-                    flag = false;
+                    isPalindrome = false;
                     break;
                 }
             }
-            if (flag) {
+            if (isPalindrome) {
                 System.out.println(args[i] + " ");
                 System.exit(1);
             }

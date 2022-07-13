@@ -1,0 +1,26 @@
+/**
+ * 8. Ввести n чисел с консоли. Среди чисел найти число-палиндром.
+ * Если таких чисел больше одного, найти второе.
+ */
+package chapter2.task1;
+
+public class NumberPalindromeInArray {
+
+    public static void main(String[] args) {
+
+        for (int i = 0; i < args.length; i++) {
+            boolean flag = true;
+            for (int j = 0; j < args[i].length(); j++) {
+                if (args[i].charAt(j) !=
+                        args[i].charAt(args[i].length() - j - 1)) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag) {
+                System.out.println(args[i] + " ");
+                System.exit(1);
+            }
+        }
+    }
+}

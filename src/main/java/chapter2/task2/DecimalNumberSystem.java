@@ -4,7 +4,7 @@
  */
 package chapter2.task2;
 
-public class NumberSystem {
+public class DecimalNumberSystem {
 
     public static void main(String[] args) {
 

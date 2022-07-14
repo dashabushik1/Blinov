@@ -17,7 +17,7 @@ public class DivByFive {
             }
             System.out.print("Numbers that are divisible by 5 and by 7: " + value);
         } catch (NumberFormatException e) {
-            System.err.println("Entered is not a number.");
+            System.err.println(e.getMessage());
         }
     }
 }

@@ -17,7 +17,7 @@ public class DivByThree {
             }
             System.out.print("Numbers that are divisible by 3 or by 9: " + value);
         } catch (NumberFormatException e) {
-            System.err.println("Entered is not a number.");
+            System.err.println(e.getMessage());
         }
     }
 }

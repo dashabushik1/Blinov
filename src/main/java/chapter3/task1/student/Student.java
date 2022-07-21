@@ -17,11 +17,14 @@ public class Student {
     private String fullName, dateOfBirth, address, faculty;
     private int course, group;
 
-    public Student() {};
+    public Student() {
+    }
 
-    public Student(int ID, String fullName, String dateOfBirth, String address,
+    ;
+
+    public Student(String fullName, String dateOfBirth, String address,
                    long phoneNumber, String faculty, int course, int group) {
-        this.ID = ID;
+        this.ID = ID++;
         this.fullName = fullName;
         this.dateOfBirth = dateOfBirth;
         this.address = address;
@@ -37,6 +40,14 @@ public class Student {
 
     public void setID(long ID) {
         this.ID = ID;
+    }
+
+    public long getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(long phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getFullName() {
@@ -61,14 +72,6 @@ public class Student {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public long getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(long phoneNumber) {
-        this.phoneNumber = phoneNumber;
     }
 
     public String getFaculty() {
@@ -97,8 +100,15 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student: " + "ID = " + ID + ", full name = " + fullName + ", date of birthday = " + dateOfBirth
-                + ", address = " + address + ", phone number =  " + phoneNumber + ", faculity = " + faculty + ", course = "
-                + course + ", group = " + group + ".";
+        return "Student{" +
+                "ID=" + ID +
+                ", phoneNumber=" + phoneNumber +
+                ", fullName='" + fullName + '\'' +
+                ", dateOfBirth='" + dateOfBirth + '\'' +
+                ", address='" + address + '\'' +
+                ", faculty='" + faculty + '\'' +
+                ", course=" + course +
+                ", group=" + group +
+                '}';
     }
 }

@@ -13,19 +13,11 @@
 package chapter3.task1.student;
 
 public class Student {
-    private long ID;
-    private String fullName;
-    private String dateOfBirth;
-    private String address;
-    private long phoneNumber;
-    private String faculty;
-    private int course;
-    private int group;
+    private long ID, phoneNumber;
+    private String fullName, dateOfBirth, address, faculty;
+    private int course, group;
 
-    public Student() {
-    }
-
-    ;
+    public Student() {};
 
     public Student(int ID, String fullName, String dateOfBirth, String address,
                    long phoneNumber, String faculty, int course, int group) {

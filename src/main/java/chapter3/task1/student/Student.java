@@ -13,18 +13,13 @@
 package chapter3.task1.student;
 
 public class Student {
-    private long ID, phoneNumber;
+    private long id, phoneNumber;
     private String fullName, dateOfBirth, address, faculty;
     private int course, group;
 
-    public Student() {
-    }
-
-    ;
-
-    public Student(String fullName, String dateOfBirth, String address,
+    public Student(long id, String fullName, String dateOfBirth, String address,
                    long phoneNumber, String faculty, int course, int group) {
-        this.ID = ID++;
+        this.id = id;
         this.fullName = fullName;
         this.dateOfBirth = dateOfBirth;
         this.address = address;
@@ -35,11 +30,11 @@ public class Student {
     }
 
     public long getID() {
-        return ID;
+        return id;
     }
 
-    public void setID(long ID) {
-        this.ID = ID;
+    public void setID(long id) {
+        this.id = id;
     }
 
     public long getPhoneNumber() {
@@ -101,7 +96,7 @@ public class Student {
     @Override
     public String toString() {
         return "Student{" +
-                "ID=" + ID +
+                "id=" + id +
                 ", phoneNumber=" + phoneNumber +
                 ", fullName='" + fullName + '\'' +
                 ", dateOfBirth='" + dateOfBirth + '\'' +

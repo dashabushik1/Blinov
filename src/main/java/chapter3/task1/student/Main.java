@@ -1,7 +1,5 @@
 package chapter3.task1.student;
 
-import java.util.Arrays;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -18,6 +16,24 @@ public class Main {
             }
         }
 
+        int maxCourse = service.findMaxCourse(students);
 
+        System.out.println("Students by faculties and courses");
+        for (int course = 1; course <= maxCourse; course++) {
+            Student[] studentsByCourse = service.filterByCourse(students, course);
+            String[] varietyFaculties = service.findVarietyFaculties(studentsByCourse);
+            if (varietyFaculties.length != 0) {
+                System.out.println("//////////////Course :" + course);
+            }
+            for (int i = 0; i < varietyFaculties.length; i++) {
+                Student[] studentsByCourseAndFaculty
+                        = service.filterByFaculty(studentsByCourse, varietyFaculties[i]);
+                System.out.println("///////////Faculty :" + varietyFaculties[i]);
+                for (int j = 0; j < studentsByCourseAndFaculty.length; j++) {
+                    System.out.println("////////" + studentsByCourseAndFaculty[j].getFullName());
+                }
+            }
+        }
     }
 }
+

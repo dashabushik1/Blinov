@@ -1,5 +1,7 @@
 package chapter3.task1.student;
 
+import java.util.Arrays;
+
 public class StudentService {
     public Student[] getAll() {
         Student[] students = new Student[8];
@@ -18,14 +20,59 @@ public class StudentService {
     public Student[] filterByFaculty(Student[] students, String faculty) {
         Student[] result = new Student[students.length];
         int i = 0;
-        for (Student st : students) {
-            if (faculty == st.getFaculty()) {
-                result[i++] = st;
+        for (Student student : students) {
+            if (student == null) {
+                continue;
+            }
+            if (faculty.equals(student.getFaculty())) {
+                result[i++] = student;
+            }
+        }
+        return Arrays.copyOf(result, i);
+    }
+
+    public int findMaxCourse(Student[] students) {
+        int result = 0;
+        for (Student student : students) {
+            if (result < student.getCourse()) {
+                result = student.getCourse();
             }
         }
         return result;
     }
 
+    public String[] findVarietyFaculties(Student[] students) {
+        String[] result = new String[students.length];
+        int index = 0;
+        for (Student student : students) {
+            if (student == null) {
+                break;
+            }
+            boolean contains = false;
+            for (String s : result) {
+                if (s != null && s.equals(student.getFaculty())) {
+                    contains = true;
+                    break;
+                }
+            }
+            if (!contains) {
+                result[index++] = student.getFaculty();
+            }
+        }
+        return Arrays.copyOf(result, index);
+    }
 
+    public Student[] filterByCourse(Student[] students, int course) {
+        Student[] result = new Student[students.length];
+        int i = 0;
+        for (Student st : students) {
+            if (course == st.getCourse()) {
+                result[i++] = st;
+            }
+        }
+        return result;
+    }
 }
+
+
 

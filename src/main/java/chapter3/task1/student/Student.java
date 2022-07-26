@@ -29,11 +29,11 @@ public class Student {
         this.group = group;
     }
 
-    public long getID() {
+    public long getId() {
         return id;
     }
 
-    public void setID(long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

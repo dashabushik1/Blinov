@@ -1,8 +1,7 @@
 package chapter3.task1.student;
 
-import java.util.Arrays;
-
 public class StudentService {
+
     public Student[] getAll() {
         Student[] students = new Student[8];
         students[0] = new Student(1, "Petrov Ivan", "03.06.1995", "Minsk, Kaganca street 6/170", 2345612, "Faculty of Computer Design", 2, 122);
@@ -18,59 +17,51 @@ public class StudentService {
     }
 
     public Student[] filterByFaculty(Student[] students, String faculty) {
-        Student[] result = new Student[students.length];
-        int i = 0;
+        Student[] faculties = new Student[students.length];
+        int index = 0;
         for (Student student : students) {
-            if (student == null) {
-                continue;
-            }
-            if (faculty.equals(student.getFaculty())) {
-                result[i++] = student;
+            if ((student != null) && (faculty.equals(student.getFaculty()))) {
+                faculties[index++] = student;
             }
         }
-        return Arrays.copyOf(result, i);
+        return faculties;
     }
 
     public int findMaxCourse(Student[] students) {
-        int result = 0;
+        int course = 0;
         for (Student student : students) {
-            if (result < student.getCourse()) {
-                result = student.getCourse();
+            if (course < student.getCourse()) {
+                course = student.getCourse();
             }
         }
-        return result;
+        return course;
     }
 
     public String[] findVarietyFaculties(Student[] students) {
-        String[] result = new String[students.length];
+        String[] faculties = new String[students.length];
         int index = 0;
         for (Student student : students) {
-            if (student == null) {
-                break;
-            }
-            boolean contains = false;
-            for (String s : result) {
-                if (s != null && s.equals(student.getFaculty())) {
-                    contains = true;
-                    break;
+            if (student != null) {
+                String studentFaculty = student.getFaculty();
+                for (String faculty : faculties) {
+                    if (!studentFaculty.equals(faculty)) {
+                        faculties[index++] = student.getFaculty();
+                    }
                 }
             }
-            if (!contains) {
-                result[index++] = student.getFaculty();
-            }
         }
-        return Arrays.copyOf(result, index);
+        return faculties;
     }
 
     public Student[] filterByCourse(Student[] students, int course) {
-        Student[] result = new Student[students.length];
-        int i = 0;
+        Student[] courses = new Student[students.length];
+        int index = 0;
         for (Student st : students) {
             if (course == st.getCourse()) {
-                result[i++] = st;
+                courses[index++] = st;
             }
         }
-        return result;
+        return courses;
     }
 }
 

@@ -13,84 +13,72 @@
 package chapter3.task1.student;
 
 public class Student {
-    private long id, phoneNumber;
-    private String fullName, dateOfBirth, address, faculty;
-    private int course, group;
+    private Long id;
+    private Long phoneNumber;
+    private String fullName;
+    private String address;
+    private String faculty;
+    private int course;
+    private int group;
+    private int yearOfBirth;
 
-    public Student(long id, String fullName, String dateOfBirth, String address,
-                   long phoneNumber, String faculty, int course, int group) {
+    public Student(String fullName, String faculty, int course, int group, int yearOfBirth) {
+        this(null, null, fullName, null, faculty, course, group, yearOfBirth);
+    }
+
+    public Student(Long id, Long phoneNumber, String fullName, String address, String faculty, int course, int group, int yearOfBirth) {
+        if (fullName == null) {
+            throw new RuntimeException("Full name must not be null!");
+        }
+        if (faculty == null) {
+            throw new RuntimeException("Faculty must not be null!");
+        }
+        if (course <= 0) {
+            throw new RuntimeException("Course must be positive number.");
+        }
+        if (yearOfBirth <= 1900) {
+            throw new RuntimeException("Year of birth must be greater than 1900.");
+        }
         this.id = id;
-        this.fullName = fullName;
-        this.dateOfBirth = dateOfBirth;
-        this.address = address;
         this.phoneNumber = phoneNumber;
+        this.fullName = fullName;
+        this.address = address;
         this.faculty = faculty;
         this.course = course;
         this.group = group;
+        this.yearOfBirth = yearOfBirth;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public long getPhoneNumber() {
+    public Long getPhoneNumber() {
         return phoneNumber;
-    }
-
-    public void setPhoneNumber(long phoneNumber) {
-        this.phoneNumber = phoneNumber;
     }
 
     public String getFullName() {
         return fullName;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public String getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
     public String getAddress() {
         return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public String getFaculty() {
         return faculty;
     }
 
-    public void setFaculty(String faculty) {
-        this.faculty = faculty;
-    }
-
     public int getCourse() {
         return course;
-    }
-
-    public void setCourse(int course) {
-        this.course = course;
     }
 
     public int getGroup() {
         return group;
     }
 
-    public void setGroup(int group) {
-        this.group = group;
+    public int getYearOfBirth() {
+        return yearOfBirth;
     }
 
     @Override
@@ -99,11 +87,11 @@ public class Student {
                 "id=" + id +
                 ", phoneNumber=" + phoneNumber +
                 ", fullName='" + fullName + '\'' +
-                ", dateOfBirth='" + dateOfBirth + '\'' +
                 ", address='" + address + '\'' +
                 ", faculty='" + faculty + '\'' +
                 ", course=" + course +
                 ", group=" + group +
+                ", yearOfBirth=" + yearOfBirth +
                 '}';
     }
 }

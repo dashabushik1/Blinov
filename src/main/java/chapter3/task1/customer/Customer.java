@@ -16,14 +16,14 @@ public class Customer {
     private String name;
     private String patronymic;
     private String address;
-    private int credit_card_number;
     private String account_number;
+    private int credit_card_number;
 
     public Customer(String surname, String name, String patronymic, int credit_card_number) {
-        this(null, surname, name, patronymic, null, credit_card_number, null);
+        this(null, surname, name, patronymic, null, null, credit_card_number);
     }
 
-    public Customer(Long id, String surname, String name, String patronymic, String address, int credit_card_number, String account_number) {
+    public Customer(Long id, String surname, String name, String patronymic, String address, String account_number, int credit_card_number) {
         if (surname == null) {
             throw new RuntimeException("Surname must not be null!");
         }
@@ -41,8 +41,8 @@ public class Customer {
         this.name = name;
         this.patronymic = patronymic;
         this.address = address;
-        this.credit_card_number = credit_card_number;
         this.account_number = account_number;
+        this.credit_card_number = credit_card_number;
     }
 
     public Long getId() {
@@ -65,13 +65,14 @@ public class Customer {
         return address;
     }
 
+    public String getAccount_number() {
+        return account_number;
+    }
+
     public long getCredit_card_number() {
         return credit_card_number;
     }
 
-    public String getAccount_number() {
-        return account_number;
-    }
 
     @Override
     public String toString() {
@@ -81,8 +82,8 @@ public class Customer {
                 ", name='" + name + '\'' +
                 ", patronymic='" + patronymic + '\'' +
                 ", address='" + address + '\'' +
-                ", credit_card_number='" + credit_card_number + '\'' +
                 ", account_number='" + account_number + '\'' +
+                ", credit_card_number='" + credit_card_number + '\'' +
                 '}';
     }
 }

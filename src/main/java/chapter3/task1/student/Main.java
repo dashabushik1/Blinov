@@ -86,12 +86,9 @@ public class Main {
             }
         }
         Student[] actualStudents = new Student[actualStudentsCount];
+        int j = 0;
         for (int i = 0; i < filteredStudents.length; i++) {
             if (filteredStudents[i] != null) {
-                int j = 0;
-                while (actualStudents[j] != null) {
-                    j++;
-                }
                 actualStudents[j] = filteredStudents[i];
             }
         }

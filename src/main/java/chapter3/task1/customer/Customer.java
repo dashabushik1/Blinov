@@ -11,7 +11,7 @@ package chapter3.task1.customer;
 
 public class Customer {
 
-    private Long id;
+    private Long ID;
     private String surname;
     private String name;
     private String patronymic;
@@ -23,7 +23,7 @@ public class Customer {
         this(null, surname, name, patronymic, null, null, credit_card_number);
     }
 
-    public Customer(Long id, String surname, String name, String patronymic, String address, String account_number, int credit_card_number) {
+    public Customer(Long ID, String surname, String name, String patronymic, String address, String account_number, int credit_card_number) {
         if (surname == null) {
             throw new RuntimeException("Surname must not be null!");
         }
@@ -36,7 +36,7 @@ public class Customer {
         if (credit_card_number <= 0) {
             throw new RuntimeException("Credit card number must not be null!");
         }
-        this.id = id;
+        this.ID = ID;
         this.surname = surname;
         this.name = name;
         this.patronymic = patronymic;
@@ -46,7 +46,7 @@ public class Customer {
     }
 
     public Long getId() {
-        return id;
+        return ID;
     }
 
     public String getSurname() {
@@ -77,7 +77,7 @@ public class Customer {
     @Override
     public String toString() {
         return "Customer{" +
-                "id=" + id +
+                "id=" + ID +
                 ", surname='" + surname + '\'' +
                 ", name='" + name + '\'' +
                 ", patronymic='" + patronymic + '\'' +

@@ -20,23 +20,22 @@ public class Main {
                         "7453607", new int[]{4, 4, 2, 4, 5})
         };
 
-
-        System.out.println("Abiturients with bad marks: ");
         Abiturient[] abiturientsWithBadMarks = findAbiturientsWithBadMarks(abiturients);
+        System.out.println("Abiturients with bad marks: ");
         for (Abiturient abiturient : abiturientsWithBadMarks) {
             System.out.println(abiturient.getSurname() + " " + abiturient.getName() + " "
                     + abiturient.getPatronymic());
         }
 
-        System.out.println("\nAbiturients with sum of marks more than 15: ");
         Abiturient[] abiturientsWithMarksMore = findAbiturientsWithSumOfMarksMoreThan(abiturients, 15);
+        System.out.println("\nAbiturients with sum of marks more than 15: ");
         for (Abiturient abiturient : abiturientsWithMarksMore) {
             System.out.println(abiturient.getSurname() + " " + abiturient.getName() + " "
                     + abiturient.getPatronymic());
         }
 
-        System.out.println("\nBest 3 abiturients: ");
         Abiturient[] bestAbiturients = findBestAbiturients(abiturients, 3);
+        System.out.println("\nBest 3 abiturients: ");
         for (Abiturient abiturient : bestAbiturients) {
             System.out.println(abiturient.getSurname() + " " + abiturient.getName() + " "
                     + abiturient.getPatronymic());
@@ -53,18 +52,37 @@ public class Main {
         }
     }
 
-    private static Abiturient[] findAbiturientsWithBadMarks(Abiturient[] abiturients) {
-        Abiturient[] abiturientsWithBadMarks = new Abiturient[abiturients.length];
-        int IndexOfAbiturientsWithBadMarks = 0;
-        for (int i = 0; i < abiturients.length; ++i) {
-            if (hasBadMark(abiturients[i])) {
-                abiturientsWithBadMarks[i] = abiturients[i];
-                IndexOfAbiturientsWithBadMarks++;
+    private static Abiturient[] findAbiturientsBySumOfMarks(Abiturient[] abiturients, int sumOfMark) {
+        Abiturient[] abiturientsBySumOfMarks = new Abiturient[abiturients.length];
+        int indexOfAbiturientsBySumOfMarks = 0;
+        for (int i = 0; i < abiturients.length; i++) {
+            if (findSumOfMarks(abiturients[i]) == sumOfMark) {
+                abiturientsBySumOfMarks[indexOfAbiturientsBySumOfMarks] = abiturients[i];
+                indexOfAbiturientsBySumOfMarks++;
             }
         }
-        Abiturient[] result = new Abiturient[IndexOfAbiturientsWithBadMarks];
+        Abiturient[] result = new Abiturient[indexOfAbiturientsBySumOfMarks];
         int j = 0;
-        for (int i = 0; i < IndexOfAbiturientsWithBadMarks; ++i) {
+        for (int i = 0; i < indexOfAbiturientsBySumOfMarks; i++) {
+            if (abiturientsBySumOfMarks[j] != null) {
+                result[i] = abiturientsBySumOfMarks[j];
+            }
+        }
+        return result;
+    }
+
+    private static Abiturient[] findAbiturientsWithBadMarks(Abiturient[] abiturients) {
+        Abiturient[] abiturientsWithBadMarks = new Abiturient[abiturients.length];
+        int indexOfAbiturientsWithBadMarks = 0;
+        for (int i = 0; i < abiturients.length; ++i) {
+            if (findBadMark(abiturients[i])) {
+                abiturientsWithBadMarks[indexOfAbiturientsWithBadMarks] = abiturients[i];
+                indexOfAbiturientsWithBadMarks++;
+            }
+        }
+        Abiturient[] result = new Abiturient[indexOfAbiturientsWithBadMarks];
+        int j = 0;
+        for (int i = 0; i < indexOfAbiturientsWithBadMarks; ++i) {
             if (abiturientsWithBadMarks[j] != null) {
                 result[i] = abiturientsWithBadMarks[j];
             } else {
@@ -75,66 +93,43 @@ public class Main {
         return result;
     }
 
-    private static Abiturient[] findAbiturientsBySumOfMarks(Abiturient[] abiturients, int sumOfMark) {
-        Abiturient[] abiturientsBySumOfMarks = new Abiturient[abiturients.length];
-        int countOfAbiturientsBySumOfMarks = 0;
-        for (int i = 0; i < abiturients.length; ++i) {
-            if (findSumOfMarks(abiturients[i]) == sumOfMark) {
-                abiturientsBySumOfMarks[i] = abiturients[i];
-                countOfAbiturientsBySumOfMarks++;
-            }
-        }
-        Abiturient[] result = new Abiturient[countOfAbiturientsBySumOfMarks];
-        int j = 0;
-        for (int i = 0; i < countOfAbiturientsBySumOfMarks; ++i) {
-            if (abiturientsBySumOfMarks[j] != null) {
-                result[i] = abiturientsBySumOfMarks[j];
-            } else {
-                --i;
-            }
-            ++j;
-        }
-        return result;
-    }
+    private static Abiturient[] findBestAbiturients(Abiturient[] abiturients, int numberOfAbiturients) {
 
-    private static Abiturient[] findBestAbiturients(Abiturient[] abiturients, int maxCount) {
-        if (maxCount > abiturients.length) {
-            throw new IllegalArgumentException("right count is more than abiturents count");
+        if (numberOfAbiturients > abiturients.length) {
+            throw new IllegalArgumentException("Number is more than all abiturents.");
         }
 
-        Abiturient[] result = new Abiturient[maxCount];
-        Abiturient[] copy = Arrays.copyOf(abiturients, abiturients.length);
+        Abiturient[] bestAbiturients = new Abiturient[numberOfAbiturients];
+        Abiturient[] copyOfBestAbiturients = Arrays.copyOf(abiturients, abiturients.length);
 
-
-        for (int i = 0; i < copy.length; ++i) {
-            for (int j = i + 1; j < copy.length; j++) {
-                if (findSumOfMarks(copy[i]) < findSumOfMarks(copy[j])) {
-                    Abiturient abiturient = copy[i];
-                    copy[i] = copy[j];
-                    copy[j] = abiturient;
+        for (int i = 0; i < copyOfBestAbiturients.length; ++i) {
+            for (int j = i + 1; j < copyOfBestAbiturients.length; j++) {
+                if (findSumOfMarks(copyOfBestAbiturients[i]) < findSumOfMarks(copyOfBestAbiturients[j])) {
+                    Abiturient abiturient = copyOfBestAbiturients[i];
+                    copyOfBestAbiturients[i] = copyOfBestAbiturients[j];
+                    copyOfBestAbiturients[j] = abiturient;
                 }
             }
         }
 
-        for (int i = 0; i < maxCount; i++) {
-            result[i] = copy[i];
+        for (int i = 0; i < numberOfAbiturients; i++) {
+            bestAbiturients[i] = copyOfBestAbiturients[i];
         }
-
-        return result;
+        return bestAbiturients;
     }
 
     private static Abiturient[] findAbiturientsWithSumOfMarksMoreThan(Abiturient[] abiturients, int sumOfMarks) {
         Abiturient[] abiturientsWithSumOfMarksMore = new Abiturient[abiturients.length];
-        int countOfAbiturientsWithSumOfMarksMore = 0;
+        int indexOfAbiturientsWithSumOfMarksMore = 0;
         for (int i = 0; i < abiturients.length; ++i) {
-            if (hasSumOfMarksMoreThan(abiturients[i], sumOfMarks)) {
+            if (findSumOfMarksMoreThan(abiturients[i], sumOfMarks)) {
                 abiturientsWithSumOfMarksMore[i] = abiturients[i];
-                countOfAbiturientsWithSumOfMarksMore++;
+                indexOfAbiturientsWithSumOfMarksMore++;
             }
         }
-        Abiturient[] result = new Abiturient[countOfAbiturientsWithSumOfMarksMore];
+        Abiturient[] result = new Abiturient[indexOfAbiturientsWithSumOfMarksMore];
         int j = 0;
-        for (int i = 0; i < countOfAbiturientsWithSumOfMarksMore; ++i) {
+        for (int i = 0; i < indexOfAbiturientsWithSumOfMarksMore; ++i) {
             if (abiturientsWithSumOfMarksMore[j] != null) {
                 result[i] = abiturientsWithSumOfMarksMore[j];
             } else {
@@ -145,12 +140,12 @@ public class Main {
         return result;
     }
 
-    private static boolean hasSumOfMarksMoreThan(Abiturient abiturient, int minSumOfMarks) {
+    private static boolean findSumOfMarksMoreThan(Abiturient abiturient, int minSumOfMarks) {
         int sumOfMarks = findSumOfMarks(abiturient);
         return minSumOfMarks < sumOfMarks;
     }
 
-    private static boolean hasBadMark(Abiturient abiturient) {
+    private static boolean findBadMark(Abiturient abiturient) {
         for (int mark : abiturient.getMarks()) {
             if (mark < 4) {
                 return true;

@@ -13,7 +13,7 @@ package chapter3.task1.patient;
 
 public class Patient {
 
-    private Long ID;
+    private Long id;
     private String surname;
     private String name;
     private String patronymic;
@@ -26,7 +26,7 @@ public class Patient {
         this(null, surname, name, patronymic, null, null, diagnosis, medical_card_number);
     }
 
-    public Patient(Long ID, String surname, String name, String patronymic, String address, String phone_number,
+    public Patient(Long id, String surname, String name, String patronymic, String address, String phone_number,
                    String diagnosis, int medical_card_number) {
         if (surname == null) {
             throw new RuntimeException("Surname must not be null!");
@@ -43,7 +43,7 @@ public class Patient {
         if (medical_card_number <= 0) {
             throw new RuntimeException("Medical card number must not be null!");
         }
-        this.ID = ID;
+        this.id = id;
         this.surname = surname;
         this.name = name;
         this.patronymic = patronymic;
@@ -54,7 +54,7 @@ public class Patient {
     }
 
     public Long getId() {
-        return ID;
+        return id;
     }
 
     public String getSurname() {
@@ -88,7 +88,7 @@ public class Patient {
     @Override
     public String toString() {
         return "Patient{" +
-                "id=" + ID +
+                "id=" + id +
                 ", surname='" + surname + '\'' +
                 ", name='" + name + '\'' +
                 ", patronymic='" + patronymic + '\'' +

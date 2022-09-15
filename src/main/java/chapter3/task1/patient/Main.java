@@ -21,49 +21,55 @@ public class Main {
 
         Patient[] patientsByTheGivenDiagnosis = findPatientsByTheGivenDiagnosis(patients, "Laryngitis");
         System.out.println("List of patients with Laryngitis diagnosis are: ");
-        for (int i = 0; i < patientsByTheGivenDiagnosis.length; i++) {
-            System.out.println(patientsByTheGivenDiagnosis[i].getSurname() + " " + patientsByTheGivenDiagnosis[i].getName() +
-                    " " + patientsByTheGivenDiagnosis[i].getPatronymic() + ": " + patientsByTheGivenDiagnosis[i].getDiagnosis());
-        }
+        print(patientsByTheGivenDiagnosis);
 
         Patient[] patientsByMedicalCardNumbersInTheGivenRange = findPatientsByCardNumberInTheGivenRange(patients, 50, 70);
         System.out.println("\nList of patients whose medical card number int the range from 50 to 70 are: ");
-        for (int i = 0; i < patientsByMedicalCardNumbersInTheGivenRange.length; i++) {
-            System.out.println(patientsByMedicalCardNumbersInTheGivenRange[i].getSurname() + " " + patientsByMedicalCardNumbersInTheGivenRange[i].getName() +
-                    " " + patientsByMedicalCardNumbersInTheGivenRange[i].getPatronymic() + ": " + patientsByMedicalCardNumbersInTheGivenRange[i].getMedical_card_number());
-        }
+        print(patientsByMedicalCardNumbersInTheGivenRange);
 
     }
 
     private static Patient[] findPatientsByTheGivenDiagnosis(Patient[] patients, String diagnosis) {
-        Patient[] expectedPatientsByDiagnosis = new Patient[patients.length];
+        Patient[] patientsByDiagnosis = new Patient[patients.length];
         int diagnosisIndex = 0;
         for (Patient patient : patients) {
-            if (patient.getDiagnosis().equals(diagnosis)) {
-                expectedPatientsByDiagnosis[diagnosisIndex] = patient;
+            if (patient.getDiagnosis().toLowerCase().equals(diagnosis.toLowerCase())) {
+                patientsByDiagnosis[diagnosisIndex] = patient;
                 diagnosisIndex++;
             }
         }
-        Patient[] actualPatientsByDiagnosis = new Patient[diagnosisIndex];
-        for (int i = 0; i < diagnosisIndex; i++) {
-            actualPatientsByDiagnosis[i] = expectedPatientsByDiagnosis[i];
-        }
-        return actualPatientsByDiagnosis;
+        trim(patientsByDiagnosis, diagnosisIndex);
+        return patientsByDiagnosis;
     }
 
     private static Patient[] findPatientsByCardNumberInTheGivenRange(Patient[] patients, int min, int max) {
-        Patient[] expectedPatientsByMedicalCardNumbers = new Patient[patients.length];
+        Patient[] patientsByMedicalCardNumbers = new Patient[patients.length];
         int cardNumberIndex = 0;
         for (Patient patient : patients) {
             if ((patient.getMedical_card_number() > min) && (patient.getMedical_card_number() < max)) {
-                expectedPatientsByMedicalCardNumbers[cardNumberIndex] = patient;
+                patientsByMedicalCardNumbers[cardNumberIndex] = patient;
                 cardNumberIndex++;
             }
         }
-        Patient[] actualPatientsByMedicalCardNumbers = new Patient[cardNumberIndex];
-        for (int i = 0; i < cardNumberIndex; i++) {
-            actualPatientsByMedicalCardNumbers[i] = expectedPatientsByMedicalCardNumbers[i];
+        trim(patientsByMedicalCardNumbers, cardNumberIndex);
+        return patientsByMedicalCardNumbers;
+    }
+
+    private static Patient[] trim(Patient[] patients, int lenght) {
+        Patient[] result = new Patient[lenght];
+        int j = 0;
+        for (int i = 0; i < patients.length; i++) {
+            if (patients[i] != null) {
+                result[j] = patients[i];
+            }
         }
-        return actualPatientsByMedicalCardNumbers;
+        return result;
+    }
+
+    private static void print(Patient[] patients) {
+        for (int i = 0; i < patients.length; i++) {
+            System.out.println(patients[i].getSurname() + " " + patients[i].getName() +
+                    " " + patients[i].getPatronymic());
+        }
     }
 }

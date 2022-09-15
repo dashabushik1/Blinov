@@ -21,23 +21,17 @@ public class Main {
 
         Customer[] sortedCustomers = sort(customers);
         System.out.println("Customers in alphabetic order:");
-        for (int i = 0; i < sortedCustomers.length; i++) {
-            System.out.println(sortedCustomers[i].getSurname() + " " + sortedCustomers[i].getName() + " "
-                    + sortedCustomers[i].getPatronymic());
-        }
+        print(sortedCustomers);
 
         System.out.println("\nCustomers in the given range from 500 to 700 are:");
         Customer[] allCustomersInTheGivenRange = findCustomersByCreditCardNumberInTheGivenRange(customers, 500, 700);
-        for (int i = 0; i < allCustomersInTheGivenRange.length; i++) {
-            System.out.println(allCustomersInTheGivenRange[i].getSurname() + " " + allCustomersInTheGivenRange[i].getName() +
-                    " " + allCustomersInTheGivenRange[i].getPatronymic());
-        }
+        print(allCustomersInTheGivenRange);
     }
 
     private static Customer[] sort(Customer[] customers) {
         Customer[] sortedCustomers = new Customer[customers.length];
         for (int i = 0; i < customers.length; i++) {
-            Arrays.sort(customers, (a, b) -> a.getSurname().compareTo(b.getSurname()));
+            Arrays.sort(customers, (a, b) -> a.getSurname().compareTo(b.getSurname())); // метод без объявления, синтаксис (аргументы) -> (тело)
             sortedCustomers[i] = customers[i];
         }
         return sortedCustomers;
@@ -57,5 +51,12 @@ public class Main {
             actualCustomersInTheGivenRange[i] = expectedCustomersInTheGivenRange[i];
         }
         return actualCustomersInTheGivenRange;
+    }
+
+    private static void print(Customer[] customers) {
+        for (int i = 0; i < customers.length; i++) {
+            System.out.println(customers[i].getSurname() + " " + customers[i].getName() +
+                    " " + customers[i].getPatronymic());
+        }
     }
 }

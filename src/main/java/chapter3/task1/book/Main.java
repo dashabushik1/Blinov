@@ -21,21 +21,15 @@ public class Main {
 
         Book[] booksByAuthor = findBooksByAuthor(books, "Grimm V.");
         System.out.println("Books by Grimm V.: ");
-        for (int i = 0; i < booksByAuthor.length; i++) {
-            System.out.println(booksByAuthor[i].getName() + " ");
-        }
+        print(booksByAuthor);
 
         Book[] booksByPublishingHouse = findBooksByPublishingHouse(books, "Book House");
         System.out.println("\nBooks by Book House: ");
-        for (int i = 0; i < booksByPublishingHouse.length; i++) {
-            System.out.println(booksByPublishingHouse[i].getName() + " ");
-        }
+        print(booksByPublishingHouse);
 
         Book[] booksPublishedAfter = findPublishedBooksAfter(books, (short) 2005);
         System.out.println("\nBooks published after 2005: ");
-        for (Book book : booksPublishedAfter) {
-            System.out.println(book.getName());
-        }
+        print(booksPublishedAfter);
     }
 
     private static Book[] findBooksByAuthor(Book[] books, String author) {
@@ -47,13 +41,8 @@ public class Main {
                 bookIndex++;
             }
         }
-        Book[] actualBooksByAuthor = new Book[bookIndex];
-        for (int i = 0; i < bookIndex; i++) {
-            if (booksByAuthor[i] != null) {
-                actualBooksByAuthor[i] = booksByAuthor[i];
-            }
-        }
-        return actualBooksByAuthor;
+        booksByAuthor = trim(booksByAuthor, bookIndex);
+        return booksByAuthor;
     }
 
     private static Book[] findBooksByPublishingHouse(Book[] books, String publishingHouse) {
@@ -65,13 +54,8 @@ public class Main {
                 bookIndex++;
             }
         }
-        Book[] actualBooksByPublishingHouse = new Book[bookIndex];
-        for (int i = 0; i < bookIndex; ++i) {
-            if (booksByPublishingHouse[i] != null) {
-                actualBooksByPublishingHouse[i] = booksByPublishingHouse[i];
-            }
-        }
-        return actualBooksByPublishingHouse;
+        booksByPublishingHouse = trim(booksByPublishingHouse, bookIndex);
+        return booksByPublishingHouse;
     }
 
     private static Book[] findPublishedBooksAfter(Book[] books, short year) {
@@ -83,12 +67,25 @@ public class Main {
                 bookIndex++;
             }
         }
-        Book[] actualPublishedBooksAfter = new Book[bookIndex];
-        for (int i = 0; i < bookIndex; ++i) {
-            if (booksPublishedAfter[i] != null) {
-                actualPublishedBooksAfter[i] = booksPublishedAfter[i];
+        booksPublishedAfter = trim(booksPublishedAfter, bookIndex);
+        return booksPublishedAfter;
+    }
+
+    private static Book[] trim(Book[] books, int b) {
+        Book[] result = new Book[b];
+        int j = 0;
+        for (int i = 0; i < books.length; i++) {
+            if (books[i] != null) {
+                result[j] = books[i];
+                j++;
             }
         }
-        return actualPublishedBooksAfter;
+        return result;
+    }
+
+    private static void print(Book[] books) {
+        for (int i = 0; i < books.length; i++) {
+            System.out.println(books[i].getName() + " ");
+        }
     }
 }

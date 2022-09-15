@@ -12,7 +12,7 @@ package chapter3.task1.book;
 
 public class Book {
 
-    private Long ID;
+    private Long id;
     private String name;
     private String author;
     private String publishingHouse;
@@ -25,7 +25,7 @@ public class Book {
         this(0, name, author, publishingHouse, publishingYear, 0, 0, null);
     }
 
-    public Book(long ID, String name, String author, String publishingHouse, short publishingYear, int countOfPages, double cost, String bindingType) {
+    public Book(long id, String name, String author, String publishingHouse, short publishingYear, int countOfPages, double cost, String bindingType) {
         if (name == null) {
             throw new RuntimeException("Name must not be null!");
         }
@@ -35,10 +35,10 @@ public class Book {
         if (publishingHouse == null) {
             throw new RuntimeException("Publishing House must not be null!");
         }
-        if (publishingYear <= 1990) {
+        if (publishingYear < 1990) {
             throw new RuntimeException("Publishing year must be more than 1990!");
         }
-        this.ID = ID;
+        this.id = id;
         this.name = name;
         this.author = author;
         this.publishingHouse = publishingHouse;
@@ -49,7 +49,7 @@ public class Book {
     }
 
     public Long getID() {
-        return ID;
+        return id;
     }
 
     public String getName() {
@@ -83,7 +83,7 @@ public class Book {
     @Override
     public String toString() {
         return "Book{" +
-                "ID=" + ID +
+                "ID=" + id +
                 ", name='" + name + '\'' +
                 ", authors=" + author +
                 ", publishingHouse='" + publishingHouse + '\'' +

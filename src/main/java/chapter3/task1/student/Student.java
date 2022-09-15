@@ -14,7 +14,7 @@ package chapter3.task1.student;
 
 public class Student {
 
-    private Long ID;
+    private Long id;
     private Long telephone_number;
     private String surname;
     private String name;
@@ -31,7 +31,7 @@ public class Student {
         this(null, null, surname, name, patronymic, null, faculty, date_of_birth_day, date_of_birth_month, date_of_birth_year, course, group);
     }
 
-    public Student(Long ID, Long telephone_number, String surname, String name, String patronymic, String address, String faculty, int date_of_birth_day, int date_of_birth_month, int date_of_birth_year, int course, int group) {
+    public Student(Long id, Long telephone_number, String surname, String name, String patronymic, String address, String faculty, int date_of_birth_day, int date_of_birth_month, int date_of_birth_year, int course, int group) {
         if (surname == null) {
             throw new RuntimeException("Surname must not be null!");
         }
@@ -53,7 +53,7 @@ public class Student {
         if (group <= 0) {
             throw new RuntimeException("Group must be positive number!");
         }
-        this.ID = ID;
+        this.id = id;
         this.telephone_number = telephone_number;
         this.surname = surname;
         this.name = name;
@@ -68,7 +68,7 @@ public class Student {
     }
 
     public Long getID() {
-        return ID;
+        return id;
     }
 
     public Long getTelephone_number() {
@@ -118,7 +118,7 @@ public class Student {
     @Override
     public String toString() {
         return "Student{" +
-                "ID=" + ID +
+                "ID=" + id +
                 ", telephone_number=" + telephone_number +
                 ", surname='" + surname + '\'' +
                 ", name='" + name + '\'' +

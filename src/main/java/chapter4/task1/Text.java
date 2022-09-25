@@ -5,36 +5,29 @@ import java.util.List;
 
 public class Text {
 
-    List<Sentence> text = new ArrayList<>();
-    private String header;
+    private String textTitle;
+    private List<Sentence> sentences = new ArrayList<>();
 
-    public Text(String header) {
-        this.header = header;
+    public Text(String textTitle) {
+        this.textTitle = textTitle;
+    }
+
+    public String getTextTitle() {
+        return textTitle;
     }
 
     public List<Sentence> addSentence(Sentence sentence) {
-        text.add(sentence);
-        return text;
+        sentences.add(sentence);
+        return sentences;
     }
 
-    public List<Sentence> getText() {
-        return text;
-    }
-
-    public void setText(List<Sentence> text) {
-        this.text = text;
-    }
-
-    public String getHeader() {
-        return header;
+    public List<Sentence> getSentences() {
+        return sentences;
     }
 
     @Override
     public String toString() {
-        return "Text{" +
-                "text=" + text +
-                ", header='" + header + '\'' +
-                '}';
+        return String.format("Text{text=%s, header='%s'}", sentences, textTitle);
     }
 }
 

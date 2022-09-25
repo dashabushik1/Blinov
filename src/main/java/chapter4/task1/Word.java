@@ -1,6 +1,6 @@
 package chapter4.task1;
 
-public class Word extends Sentence {
+public class Word {
 
     String word;
 

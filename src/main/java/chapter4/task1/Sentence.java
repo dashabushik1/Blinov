@@ -5,14 +5,14 @@ import java.util.List;
 
 class Sentence {
 
-    List<Word> sentence = new ArrayList<>();
+    private List<Word> words = new ArrayList<>();
 
-    public List<Word> addWord(Word word) {
-        sentence.add(word);
-        return sentence;
+    public Sentence addWord(Word word) {
+        words.add(word);
+        return this;
     }
 
-    public List<Word> getSentence() {
-        return sentence;
+    public List<Word> getWords() {
+        return words;
     }
 }

@@ -8,14 +8,8 @@ public class Word {
         this.word = word;
     }
 
-    public String getWord() {
-        return word;
-    }
-
     @Override
     public String toString() {
-        return "Word{" +
-                "word='" + word + '\'' +
-                '}';
+        return word;
     }
 }

@@ -1,23 +1,24 @@
 package chapter4.task4;
 
 public class Dog extends Animal {
+
     public Dog(String name) {
-        super(name);
+        super("Rosie", "Dog");
     }
 
-    public String votesCast() {
-        return "Gav";
+    public String getVoice() {
+        return "Woof";
     }
 
-    public String jump() {
+    public String getJump() {
         return "Jump";
     }
 
-    public String run() {
+    public String getRun() {
         return "Run";
     }
 
-    public String bite() {
+    public String getBite() {
         return "Bite";
     }
 }

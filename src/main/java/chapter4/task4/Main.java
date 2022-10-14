@@ -12,12 +12,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Puppy puppy = new Puppy("Ralf");
+        Puppy puppy = new Puppy("Charlie");
 
         System.out.println("Name: " + puppy.getName());
-        System.out.println("Vote: " + puppy.votesCast());
-        System.out.println("Jump: " + puppy.jump());
-        System.out.println("Run: " + puppy.run());
-        System.out.println("Bite: " + puppy.bite());
+        System.out.println("Voice: " + puppy.getVoice());
+        System.out.println("Jump: " + puppy.getJump());
+        System.out.println("Run: " + puppy.getRun());
+        System.out.println("Bite: " + puppy.getBite());
     }
 }

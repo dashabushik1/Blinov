@@ -11,13 +11,17 @@ package chapter4.task1;
 public class Main {
 
     public static void main(String[] args) {
-        Sentence s1 = new Sentence().addWord(new Word("Baked")).addWord(new Word("salmon")).addWord(new Word("with")).addWord(new Word("unagi"))
+        Sentence s1 = new Sentence().addWord(new Word("Baked")).addWord(new Word("salmon"))
+                .addWord(new Word("with")).addWord(new Word("unagi"))
                 .addWord(new Word("sause")).addWord(new Word("and")).addWord(new Word("red")).addWord(new Word("caviar."));
 
-        Sentence s2 = new Sentence().addWord(new Word("Duck")).addWord(new Word("leg")).addWord(new Word("with")).addWord(new Word("potatoes"))
-                .addWord(new Word("and")).addWord(new Word("plum")).addWord(new Word("and")).addWord(new Word("hazelnut")).addWord(new Word("salsa."));
+        Sentence s2 = new Sentence().addWord(new Word("Duck")).addWord(new Word("leg"))
+                .addWord(new Word("with")).addWord(new Word("potatoes"))
+                .addWord(new Word("and")).addWord(new Word("plum")).addWord(new Word("and")).addWord(new Word("hazelnut"))
+                .addWord(new Word("salsa."));
 
-        Sentence s3 = new Sentence().addWord(new Word("Beef")).addWord(new Word("in")).addWord(new Word("Porto")).addWord(new Word("sause"))
+        Sentence s3 = new Sentence().addWord(new Word("Beef")).addWord(new Word("in"))
+                .addWord(new Word("Porto")).addWord(new Word("sause"))
                 .addWord(new Word("with")).addWord(new Word("shallots."));
 
         Text t1 = new Text("Main dishes");
@@ -25,25 +29,17 @@ public class Main {
         t1.addSentence(s2);
         t1.addSentence(s3);
 
-        Main.printTextTitle(t1);
-        Main.printText(t1);
+        printTitle(t1);
+        printText(t1);
     }
 
-    public static void printTextTitle(Text text){
-        System.out.println(text.getTextTitle());
+    public static void printTitle(Text text) {  // метод выводит на консоль заголовок текста
+        System.out.println(text.getTitle());
     }
 
-    public static void printSentence(Sentence sentence){
-        String line = "";
-        for(Word word : sentence.getWords()){
-            line +=  word.getWord() + " ";
-        }
-        System.out.println(line);
-    }
-
-    public static void printText(Text text){
-        for(Sentence sentence: text.getSentences()) {
-            printSentence(sentence);
+    public static void printText(Text text) {  // метод выводит на консоль текст
+        for (Sentence sentence : text.getSentences()) {
+            System.out.println(sentence);
         }
     }
 }

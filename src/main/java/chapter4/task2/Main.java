@@ -11,17 +11,17 @@ package chapter4.task2;
 public class Main {
 
     public static void main(String[] args) {
-        Processor processor = new Processor("Intel", 2);
+
+        Cpu cpu = new Cpu();
         Ram ram = new Ram();
         CdRom cdRom = new CdRom();
-        Hdd hdd = new Hdd("SSD", "Micron", "256 GB");
-        Computer myComputer = new Computer("HomeComp", "UX303LB", "Ubuntu");
+        Hdd hdd = new Hdd("256GB");
+        Computer myComputer = new Computer("macOS");
 
-        myComputer.setHardDisk(hdd);
-
+        myComputer.setHdd(hdd);
         myComputer.switchOn();
         myComputer.virusTest();
-        myComputer.getHardDisk().printCapacity();
+        myComputer.showHddCapacity();
         myComputer.switchOff();
     }
 }

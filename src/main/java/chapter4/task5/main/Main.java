@@ -13,39 +13,41 @@
  * Найти овощи в салате, соответствующие заданному диапазону калорийности.
  */
 
-package chapter4.task5;
+package chapter4.task5.main;
 
-import chapter4.task5.vegetables.*;
+import chapter4.task5.salad.Salad;
+import chapter4.task5.ingredients.CrispСroutons;
+import chapter4.task5.ingredients.Dressing;
+import chapter4.task5.ingredients.ParmesanCheese;
+import chapter4.task5.ingredients.RomaineLettuce;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Salad randomSalad = initialize();  // Создаем экземпляр овощного салата
+        Salad cesarSalad = mixSalad();  // Создаем экземпляр овощного салата
 
-        System.out.println("Overall salad calorific value - " + randomSalad.getOverallCalorificValue());
-        System.out.println("----------------------------------");  // Рассчитываем общую калорийность нашего салата
-
-        randomSalad.sortIngredients();      // Сортируем овощи по весу
-        for (Vegetable ingredient : randomSalad.getIngredients()) {
-            if (ingredient == null)
-                break;
-            System.out.println(ingredient);
-        }
+        System.out.println("Overall salad calorific value - " + cesarSalad.countCalories());  // Рассчитываем общую калорийность нашего салата
         System.out.println("----------------------------------");
 
-        System.out.println(randomSalad.getIngredient(10, 40)); // Ищем в нашем салате овощ с калорийностью из выбранного диапазона
+        cesarSalad.showRecipe();
+        System.out.println("----------------------------------");
+
+        cesarSalad.sortIngredientsByCalories();
+        System.out.println("----------------------------------");
+
+        cesarSalad.sortIngredientsByWeight();
+        System.out.println("----------------------------------");
+
+        cesarSalad.findIngredientsByCalories(300, 500);
     }
 
-    private static Salad initialize() {  // Возвращает простой экземпляр Salad со случайно взвешенными овощами
+    private static Salad mixSalad() {  // Возвращает простой экземпляр Salad со случайно взвешенными ингредиентами
         Salad salad = new Salad();
-        salad.addIngredient(new Cabbage((int) (Math.random() * 100 + 20), 20));
-        salad.addIngredient(new Carrot((int) (Math.random() * 100 + 20), "Red", "Oval"));
-        salad.addIngredient(new Cucumber((int) (Math.random() * 100 + 20), 300, "Sharp"));
-        salad.addIngredient(new Pease((int) (Math.random() * 100 + 20), 8, 20));
-        salad.addIngredient(new Potato((int) (Math.random() * 100 + 20), false));
-        salad.addIngredient(new Radish((int) (Math.random() * 100 + 20), true, "White"));
-        salad.addIngredient(new Tomato((int) (Math.random() * 100 + 20), "Hurma", "Red"));
+        salad.addIngredients(new CrispСroutons(30));
+        salad.addIngredients(new Dressing(30));
+        salad.addIngredients(new ParmesanCheese(15));
+        salad.addIngredients(new RomaineLettuce(200));
         return salad;
     }
 }

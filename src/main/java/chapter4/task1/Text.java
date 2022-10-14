@@ -5,20 +5,19 @@ import java.util.List;
 
 public class Text {
 
-    private String textTitle;
+    private String title;
     private List<Sentence> sentences = new ArrayList<>();
 
-    public Text(String textTitle) {
-        this.textTitle = textTitle;
+    public Text(String title) {
+        this.title = title;
     }
 
-    public String getTextTitle() {
-        return textTitle;
+    public String getTitle() {
+        return title;
     }
 
-    public List<Sentence> addSentence(Sentence sentence) {
+    public void addSentence(Sentence sentence) { // метод добавляет предложения в текст
         sentences.add(sentence);
-        return sentences;
     }
 
     public List<Sentence> getSentences() {
@@ -27,7 +26,11 @@ public class Text {
 
     @Override
     public String toString() {
-        return String.format("Text{text=%s, header='%s'}", sentences, textTitle);
+        StringBuilder sb = new StringBuilder();
+        for (Sentence sentence : sentences) {
+            sb.append(sentence.toString());
+        }
+        return sb.toString();
     }
 }
 

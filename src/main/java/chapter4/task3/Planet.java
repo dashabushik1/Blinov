@@ -6,49 +6,37 @@ import java.util.List;
 public class Planet {
     private String name;
 
-    private List<Ocean> oceanList = new ArrayList<>();
-    private List<Continent> continentList = new ArrayList<>();
-    private List<Island> islandList = new ArrayList<>();
+    private List<Ocean> oceans = new ArrayList<>();
+    private List<Continent> continents = new ArrayList<>();
+    private List<Island> islands = new ArrayList<>();
 
     public Planet(String name) {
         this.name = name;
     }
 
     public void addOcean(Ocean ocean) {
-        oceanList.add(ocean);
+        oceans.add(ocean);
     }
 
     public void addContinent(Continent continent) {
-        continentList.add(continent);
-    }
-
-    public void addIsland(Island island) {
-        islandList.add(island);
+        continents.add(continent);
     }
 
     public String getName() {
         return name;
     }
 
-    public List<Ocean> getOceanList() {
-        return oceanList;
-    }
-
-    public List<Continent> getContinentList() {
-        return continentList;
-    }
-
-    public List<Island> getIslandList() {
-        return islandList;
+    public List<Continent> getContinents() {
+        return continents;
     }
 
     @Override
     public String toString() {
         return "Planet{" +
                 "name='" + name + '\'' +
-                ", oceanList=" + oceanList +
-                ", continentList=" + continentList +
-                ", islandList=" + islandList +
+                ", oceanList=" + oceans +
+                ", continentList=" + continents +
+                ", islandList=" + islands +
                 '}';
     }
 }

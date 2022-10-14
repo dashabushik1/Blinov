@@ -26,10 +26,8 @@ public class Main {
         planet.addOcean(new Ocean("Indian Ocean"));
         planet.addOcean(new Ocean("Arctic Ocean"));
 
-        planet.addIsland(new Island("Barbados")); // не используется, можно ли не использовать?
-
-        System.out.println("Name of continent: " + planet.getContinentList().get(3).getName());
+        System.out.println("Name of continent: " + planet.getContinents().get(3).getName());
         System.out.println("Name of planet: " + planet.getName());
-        System.out.println("Number of continents: " + planet.getContinentList().size());
+        System.out.println("Number of continents: " + planet.getContinents().size());
     }
 }

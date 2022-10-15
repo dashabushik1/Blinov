@@ -12,6 +12,8 @@
  */
 package chapter3.task1.student;
 
+import java.util.Objects;
+
 public class Student {
 
     private Long id;
@@ -113,6 +115,19 @@ public class Student {
 
     public int getGroup() {
         return group;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Student)) return false;
+        Student student = (Student) o;
+        return getDate_of_birth_day() == student.getDate_of_birth_day() && getDate_of_birth_month() == student.getDate_of_birth_month() && getDate_of_birth_year() == student.getDate_of_birth_year() && getCourse() == student.getCourse() && getGroup() == student.getGroup() && id.equals(student.id) && getTelephone_number().equals(student.getTelephone_number()) && getSurname().equals(student.getSurname()) && getName().equals(student.getName()) && getPatronymic().equals(student.getPatronymic()) && getAddress().equals(student.getAddress()) && getFaculty().equals(student.getFaculty());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, getTelephone_number(), getSurname(), getName(), getPatronymic(), getAddress(), getFaculty(), getDate_of_birth_day(), getDate_of_birth_month(), getDate_of_birth_year(), getCourse(), getGroup());
     }
 
     @Override

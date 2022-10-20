@@ -23,7 +23,6 @@ public class Main {
                         "Faculty of Computer Systems and Networks", 24, 4, 1995, 3, 195),
         };
 
-
         Student[] studentsByFaculty = findStudentsByFaculty(students, "Faculty of Computer Systems and Networks");
         System.out.println("The students of the faculty of Computer Systems and Networks are: ");
         print(studentsByFaculty);
@@ -38,51 +37,31 @@ public class Main {
         System.out.println("The students of group 199: ");
         print(studentsByGroup);
 
-
         System.out.println("");
-        String[] faculties = findVariousFaculties(students);
-        for (int i = 0; i < faculties.length; i++) {
-            System.out.println("Faculty: " + faculties[i]);
-        }
+        int[] uniqueCourses = findUniqueCourses(students);
+        sort(uniqueCourses);
+        for (int course : uniqueCourses) {
+            System.out.println("");
+            System.out.println("Course: " + course);
 
-//        int[] variousCourses = findVariousCourses(students);
-//        String[] variousFaculties = findVariousFaculties(students);
-//        sort(variousCourses);
-//        for (int i = 0; i < variousCourses.length; i++) {
-//            System.out.println("-----------------");
-//
-//            System.out.println(variousCourses[i] + " course: ");
-//            System.out.println("-----------------");
-//            for (int j = 0; j < variousFaculties.length; j++) {
-//                System.out.println("-----------------");
-//                System.out.println("Faculty: " + variousFaculties[j]);
-//                System.out.println("-----------------");
-//                Student[] filteredStudents = findStudentsByFacultyAndCourse(students, variousFaculties[j], variousCourses[i]);
-//                for (int k = 0; k < filteredStudents.length; k++) {
-//                    System.out.println(students[k].getSurname() + " " + students[k].getName() + " " + students[k].getPatronymic());
-//                }
-//            }
-//        }
-    }
+            Student[] studentsByCourse = findStudentsByCourse(students, course);
+            String[] uniqueFaculties = findUniqueFaculties(studentsByCourse);
+            for (String faculty : uniqueFaculties) {
+                System.out.println("-----------------------------------");
+                System.out.println("Faculty: " + faculty);
 
-
-    private static Student[] findStudentsByFacultyAndCourse(Student[] students, String faculty, int course) {
-        Student[] filteredStudents = new Student[students.length];
-        for (int i = 0; i < students.length; i++) {
-            if (students[i].getFaculty().equals(faculty) && students[i].getCourse() == course) {
-                filteredStudents[i] = students[i];
+                Student[] studentsByFacultyAndCourse = findStudentsByFaculty(students, faculty);
+                for (Student student : studentsByFacultyAndCourse) {
+                    if (student != null) {
+                        if (student.getFaculty().equals(faculty) && student.getCourse() == course) {
+                            System.out.println("Student(s): " + student.getSurname() + " " +
+                                    student.getName() + " " + student.getPatronymic());
+                        }
+                    }
+                }
             }
         }
-        int actualStudentsCount = 0;
-        for (int i = 0; i < filteredStudents.length; i++) {
-            if (filteredStudents[i] != null) {
-                actualStudentsCount++;
-            }
-        }
-        trim(filteredStudents);
-        return filteredStudents;
     }
-
 
     private static Student[] findStudentsByFaculty(Student[] students, String faculty) { // метод ищет студентов определенного факультета
         Student[] foundedStudents = new Student[students.length];
@@ -124,17 +103,17 @@ public class Main {
     }
 
     private static Student[] findStudentsByCourse(Student[] students, int course) {
-        Student[] tempStudents = new Student[students.length];
+        Student[] studentsByCourse = new Student[students.length]; // метод ищет студентов по курсу
         int count = 0;
         for (int i = 0; i < students.length; i++) {
             if (students[i].getCourse() == course) {
-                tempStudents[i] = students[i];
-                ++count;
+                studentsByCourse[i] = students[i];
+                count++;
             }
         }
         Student[] result = new Student[count];
         int i = 0;
-        for (Student student : tempStudents) {
+        for (Student student : studentsByCourse) {
             if (student != null) {
                 result[i++] = student;
             }
@@ -142,55 +121,79 @@ public class Main {
         return result;
     }
 
-    private static String[] findVariousFaculties(Student[] students) {
-        Student[] expectedFaculties = new Student[students.length];
+    private static String[] findUniqueFaculties(Student[] students) {
+        String[] uniqueFaculties = new String[students.length]; // метод ищет уникальные факультеты
         for (int i = 0; i < students.length; i++) {
-            for (int j = i + 1; j < students.length; j++) {
-                if (!students[i].getFaculty().equals(students[j].getFaculty())) {
-                    expectedFaculties[i] = students[i];
+            String faculty = students[i].getFaculty();
+            boolean unique = true;
+            for (int j = 0; j < uniqueFaculties.length; j++) {
+                if (faculty.equals(uniqueFaculties[j])) {
+                    unique = false;
+                }
+            }
+            if (unique) {
+                for (int j = 0; j < uniqueFaculties.length; j++) {
+                    if (uniqueFaculties[j] == null) {
+                        uniqueFaculties[j] = faculty;
+                        break;
+                    }
                 }
             }
         }
         int actualFacultiesCount = 0;
-        for (int i = 0; i < expectedFaculties.length; i++) {
-            if (expectedFaculties[i] != null) {
+        for (int i = 0; i < uniqueFaculties.length; i++) {
+            if (uniqueFaculties[i] != null) {
                 actualFacultiesCount++;
             }
         }
-        String[] actualFaculties = new String[actualFacultiesCount];
-        for (int i = 0; i < expectedFaculties.length; i++) {
-            if (expectedFaculties[i] != null) {
-                actualFaculties[i] = expectedFaculties[i].getFaculty();
+        String[] result = new String[actualFacultiesCount];
+        int j = 0;
+        for (int i = 0; i < uniqueFaculties.length; i++) {
+            if (uniqueFaculties[i] != null) {
+                result[j] = uniqueFaculties[i];
+                j++;
             }
         }
-        return actualFaculties;
+        return result;
     }
 
-    private static int[] findVariousCourses(Student[] students) {
-        Student[] expectedCourses = new Student[students.length];
+    private static int[] findUniqueCourses(Student[] students) { // метод ищет уникальные курсы
+        int[] uniqueCourses = new int[students.length];
         for (int i = 0; i < students.length; i++) {
-            for (int j = i + 1; j < students.length; j++) {
-                if (students[i].getCourse() != students[j].getCourse()) {
-                    expectedCourses[i] = students[i];
+            int course = students[i].getCourse();
+            boolean unique = true;
+            for (int j = 0; j < uniqueCourses.length; j++) {
+                if (course == uniqueCourses[j]) {
+                    unique = false;
+                }
+            }
+            if (unique) {
+                for (int j = 0; j < uniqueCourses.length; j++) {
+                    if (uniqueCourses[j] == 0) {
+                        uniqueCourses[j] = course;
+                        break;
+                    }
                 }
             }
         }
         int actualCoursesCount = 0;
-        for (int i = 0; i < expectedCourses.length; i++) {
-            if (expectedCourses[i] != null) {
+        for (int i = 0; i < uniqueCourses.length; i++) {
+            if (uniqueCourses[i] != 0) {
                 actualCoursesCount++;
             }
         }
-        int[] actualCourses = new int[actualCoursesCount];
-        for (int i = 0; i < expectedCourses.length; i++) {
-            if (expectedCourses[i] != null) {
-                actualCourses[i] = expectedCourses[i].getCourse();
+        int[] result = new int[actualCoursesCount];
+        int j = 0;
+        for (int i = 0; i < uniqueCourses.length; i++) {
+            if (uniqueCourses[i] != 0) {
+                result[j] = uniqueCourses[i];
+                j++;
             }
         }
-        return actualCourses;
+        return result;
     }
 
-    private static void sort(int[] variousCourses) {
+    private static void sort(int[] variousCourses) { // метод сортирует уникальные курсы в порядке возрастания
         for (int i = 0; i < variousCourses.length; i++) {
             for (int j = i + 1; j < variousCourses.length; j++) {
                 if (variousCourses[i] > variousCourses[j]) {
@@ -202,7 +205,7 @@ public class Main {
         }
     }
 
-    private static Student[] trim(Student[] students) {
+    private static Student[] trim(Student[] students) { // оставляет только не null элементы
         Student[] result = new Student[students.length];
         int j = 0;
         for (int i = 0; i < students.length; i++) {
@@ -214,7 +217,7 @@ public class Main {
         return result;
     }
 
-    private static void print(Student[] students) {
+    private static void print(Student[] students) { // метод выводит на консоль студентов
         for (int i = 0; i < students.length; i++) {
             if (students[i] != null) {
                 System.out.println(students[i].getSurname() + " " + students[i].getName() + " " +

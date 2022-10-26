@@ -1,36 +1,19 @@
 package chapter6.task1.buildhouse;
 
+import chapter6.task1.Room;
+
 import java.util.List;
 
 public class House {
 
-    private List<Bathroom> bathrooms;
-    private List<Bedroom> bedrooms;
-    private Kitchen kitchen;
-    private Garage garage;
+    private List<Room> rooms;
 
-    public House() {
-    }
-
-    public void addBedroom(Bedroom bedroom) {
-        this.bedrooms.add(bedroom);
-    }
-
-    public void addBathroom(Bathroom bathroom) {
-        this.bathrooms.add(bathroom);
-    }
-
-    public void setKitchen(Kitchen kitchen) {
-        this.kitchen = kitchen;
-    }
-
-    public void setGarage(Garage garage) {
-        this.garage = garage;
+    public List<Room> getRooms() {
+        return rooms;
     }
 
     @Override
     public String toString() {
-        return "House was built!" + "\nBathroom(s):" + bathrooms + "\nBedroom(s):" + bedrooms +
-                "\nKitchen:" + kitchen + "\nGarage: " + garage;
+        return "Rooms" + rooms;
     }
 }

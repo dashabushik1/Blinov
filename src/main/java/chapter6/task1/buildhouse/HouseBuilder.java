@@ -1,17 +1,20 @@
 package chapter6.task1.buildhouse;
 
-public interface HouseBuilder { // интерфейс для строительства дома
+import chapter6.task1.FloorCeramicType;
+import chapter6.task1.buildhouse.rooms.Repair;
 
-    void addBedroom(int length, int width);
+public interface HouseBuilder {
 
-    void addBedroom(int length, int width, FloorCeramicType floorCeramicType);
+    void addBedroom(int length, int width, Repair repair);
 
-    void addBathroom(int length, int width);
+    void addBedroom(int length, int width, FloorCeramicType floorCeramicType, Repair repair);
 
-    void addBathroom(int length, int width, FloorCeramicType floorCeramicType);
+    void addBathroom(int length, int width, Repair repair);
 
-    void garage(int length, int width);
+    void addBathroom(int length, int width, FloorCeramicType floorCeramicType, Repair repair);
 
-    void kitchen(int length, int width, FloorCeramicType floorCeramicType);
+    void addKitchen(int length, int width, FloorCeramicType floorCeramicType, Repair repair);
+
+    House buildHouse();
 
 }

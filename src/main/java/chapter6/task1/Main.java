@@ -16,6 +16,7 @@ public class Main {
 
         HBuilder builder = new HBuilder();
         TwoBedroomHouse twoBedroomHouse = new TwoBedroomHouse(builder);
+
         System.out.println(twoBedroomHouse.getAllHouseArea());
 
 

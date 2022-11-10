@@ -2,7 +2,7 @@ package chapter4.task1;
 
 import java.util.*;
 
-class Sentence {
+public class Sentence {
 
     private List<Word> words = new ArrayList<>();  // Word - тип, который хранится в списке
 

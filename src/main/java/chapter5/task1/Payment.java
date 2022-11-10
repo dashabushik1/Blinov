@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Payment {
+
     private List<Product> products = new ArrayList<>();
     private double grandTotal;
-
-    public Payment() {
-    }
 
     public void addProduct(String nameOfProduct, double productQuantity, double productCost) {
         products.add(new Product(nameOfProduct, productQuantity, productCost));

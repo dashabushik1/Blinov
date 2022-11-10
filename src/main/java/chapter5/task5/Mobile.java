@@ -28,7 +28,7 @@ public class Mobile {
         return mobiles;
     }
 
-    public List<MobileProperties> showMobilesFromOneBrand(Brand brand) {
+    public List<MobileProperties> findMobilesFromOneBrand(Brand brand) {
         List<MobileProperties> mobilesFromOneBrand = new ArrayList<>();
         for (MobileProperties mobile : mobiles) {
             if (mobile.brand.equals(brand)) {

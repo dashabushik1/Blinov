@@ -11,7 +11,7 @@ import java.util.Set;
 public class Calendar {
 
     private final Set<MonthDay> holidays = new HashSet<>();
-    HolidayData holidayData;
+    private HolidayData holidayData;
 
     public Calendar() {
         this.holidayData = new HolidayData();

@@ -1,6 +1,6 @@
 package chapter4.task2;
 
-public final class Computer { // компьютер
+public class Computer { // компьютер
 
     private String typeOS;  // тип ОС
     private Hdd hdd; // винчестер
@@ -18,10 +18,6 @@ public final class Computer { // компьютер
 
     public void switchOff() {
         System.out.println("Good night.");
-    }
-
-    public Hdd getHdd() {
-        return hdd;
     }
 
     public void setHdd(Hdd hdd) {

@@ -125,8 +125,8 @@ public class Main {
         return sum;
     }
 
-    private static Abiturient[] trim(Abiturient[] abiturients, int lenght) {
-        Abiturient[] result = new Abiturient[lenght];
+    private static Abiturient[] trim(Abiturient[] abiturients, int length) {
+        Abiturient[] result = new Abiturient[length];
         int j = 0;
         for (int i = 0; i < abiturients.length; i++) {
             if (abiturients[i] != null) {

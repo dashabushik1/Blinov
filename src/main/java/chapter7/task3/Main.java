@@ -7,7 +7,6 @@
 package chapter7.task3;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Main {
 
@@ -43,19 +42,18 @@ public class Main {
         // выбранные пользователи по возрасту и первой букве имени с помощью промежуточного метода filter
         System.out.println("");
         System.out.println("Users over the age of 30 whose names begin with the letter M: ");
-        List<User> usersByGivenAgeAndFirstLetterOfName = Arrays.stream(users)
+        User[] filteredUsers = Arrays.stream(users)
                 .filter(u -> u.getAge() >= 30 &&
                         u.getName().startsWith("M"))
-                .collect(Collectors.toList());
-        for (User user : usersByGivenAgeAndFirstLetterOfName) {
+                .toArray(User[]::new);
+        for (User user : filteredUsers) {
             System.out.println(user);
         }
 
         // находим максимальный и минимальный элементы в сгруппированной группе по возрасту
-        System.out.println(""); // todo max element
-        Optional<User> minElement = usersByGivenAgeAndFirstLetterOfName
-                .stream()
-                .findFirst();
-        System.out.println("Min element: " + minElement.get().getName() + ", " + minElement.get().getAge());
+        System.out.println("");
+        System.out.println("Min element: " + filteredUsers[0] + "\nMax element: " +
+                filteredUsers[filteredUsers.length - 1]);
+
     }
 }

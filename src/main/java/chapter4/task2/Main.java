@@ -12,9 +12,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Cpu cpu = new Cpu();
-        Ram ram = new Ram();
-        CdRom cdRom = new CdRom();
         Hdd hdd = new Hdd("256GB");
         Computer myComputer = new Computer("macOS");
 

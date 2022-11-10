@@ -14,18 +14,18 @@ public class Main {
         Mobile.Brand brandTwo = Mobile.Brand.BLACKBERRY;
         Mobile.Brand brandThree = Mobile.Brand.SAMSUNG;
 
-        System.out.println("Mobiles from " + Mobile.Brand.APPLE + " company: " +
-                mobile.showMobilesFromOneBrand(brandOne).toString().replace("[", "")
+        System.out.println("Mobiles from " + brandOne + " company: " +
+                mobile.findMobilesFromOneBrand(brandOne).toString().replace("[", "")
                         .replace("]", ""));
 
         System.out.println("-----------------------------");
-        System.out.println("Mobiles from " + Mobile.Brand.BLACKBERRY + " company: " +
-                mobile.showMobilesFromOneBrand(brandTwo).toString().replace("[", "")
+        System.out.println("Mobiles from " + brandTwo + " company: " +
+                mobile.findMobilesFromOneBrand(brandTwo).toString().replace("[", "")
                         .replace("]", ""));
 
         System.out.println("-----------------------------");
-        System.out.println("Mobiles from " + Mobile.Brand.SAMSUNG + " company: " +
-                mobile.showMobilesFromOneBrand(brandThree).toString().replace("[", "")
+        System.out.println("Mobiles from " + brandThree + " company: " +
+                mobile.findMobilesFromOneBrand(brandThree).toString().replace("[", "")
                         .replace("]", ""));
 
         System.out.println("-----------------------------");

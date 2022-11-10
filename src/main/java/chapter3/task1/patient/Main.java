@@ -55,8 +55,8 @@ public class Main {
         return patientsByMedicalCardNumbers;
     }
 
-    private static Patient[] trim(Patient[] patients, int lenght) {
-        Patient[] result = new Patient[lenght];
+    private static Patient[] trim(Patient[] patients, int length) {
+        Patient[] result = new Patient[length];
         int j = 0;
         for (int i = 0; i < patients.length; i++) {
             if (patients[i] != null) {

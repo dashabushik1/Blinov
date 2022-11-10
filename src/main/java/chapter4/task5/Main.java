@@ -13,9 +13,8 @@
  * Найти овощи в салате, соответствующие заданному диапазону калорийности.
  */
 
-package chapter4.task5.main;
+package chapter4.task5;
 
-import chapter4.task5.salad.Salad;
 import chapter4.task5.ingredients.CrispСroutons;
 import chapter4.task5.ingredients.Dressing;
 import chapter4.task5.ingredients.ParmesanCheese;

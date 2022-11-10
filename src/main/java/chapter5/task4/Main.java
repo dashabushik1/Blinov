@@ -17,7 +17,7 @@ public class Main {
         park.addAttraction("Zodiac", "12.00 - 18.00", 3.00);
         park.addAttraction("Mini-Jet", "11.00 - 15.00", 2.00);
 
-        System.out.println(park.toString().toString().replace("[", "")
+        System.out.println(park.toString().replace("[", "")
                 .replace("]", ""));
     }
 }

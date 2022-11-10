@@ -1,25 +1,16 @@
-package chapter4.task6.disk;
-
-import chapter4.task6.music.Track;
+package chapter4.task6;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static chapter4.task6.music.MusicStyles.*;
+import static chapter4.task6.MusicStyles.*;
 
 public class Disc {
 
     private List<Track> trackList = new ArrayList<>();
 
-    public Disc() {
-        trackList.add(new Track("16BL - Deep In My Soul", 4.34, DEEP_HOUSE));
-        trackList.add(new Track("Eli & Fur - Something Was Real", 5.60, HOUSE));
-        trackList.add(new Track("Croquet Club - Cardigan", 5.00, PROGRESSIVE));
-        trackList.add(new Track("16BL - Nobody Seems To Care", 8.03, TRANCE));
-        trackList.add(new Track("Yotto - Love Machine", 3.36, PROGRESSIVE));
-        trackList.add(new Track("Tinlicker - Perfect Mistakes", 6.45, TRANCE));
-        trackList.add(new Track("Braxton  - The River", 5.35, HOUSE));
-        trackList.add(new Track("Above & Beyond - Homecoming", 8.03, TRANCE));
+    public void addTrack(Track track) {
+        trackList.add(track);
     }
 
     public List<Track> getTrackList() {

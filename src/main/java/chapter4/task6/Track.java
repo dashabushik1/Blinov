@@ -1,4 +1,4 @@
-package chapter4.task6.music;
+package chapter4.task6;
 
 public class Track {
     private String name; // наименование песни

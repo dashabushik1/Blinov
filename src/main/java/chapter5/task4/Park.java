@@ -7,9 +7,6 @@ public class Park {
 
     private List<Attraction> attractions = new ArrayList<>();
 
-    public Park() {
-    }
-
     public void addAttraction(String typeOfAttraction, String attractionOpeningHours, double cost) {
         attractions.add(new Attraction(typeOfAttraction, attractionOpeningHours, cost));
     }

@@ -1,31 +1,32 @@
 package chapter4.task8;
 
 public class MobilePlan {
-    public String nameOfMobilePlan; // название тарифного плана
-    public int costOfSubscriptionFee; // стоимость абоненской платы в месяц
-    private int numberOfClients; // количество клиентов / тариф
 
-    public MobilePlan(String nameOfMobilePlan, int costOfSubscriptionFee, int numberOfClients) {
-        this.nameOfMobilePlan = nameOfMobilePlan;
-        this.costOfSubscriptionFee = costOfSubscriptionFee;
-        this.numberOfClients = numberOfClients;
+    public String name; // название тарифного плана
+    public int subscriptionFee; // стоимость абоненской платы в месяц
+    private int clients; // количество клиентов / тариф
+
+    public MobilePlan(String name, int subscriptionFee, int clients) {
+        this.name = name;
+        this.subscriptionFee = subscriptionFee;
+        this.clients = clients;
     }
 
-    public String getNameOfMobilePlan() {
-        return nameOfMobilePlan;
+    public String getName() {
+        return name;
     }
 
-    public int getCostOfSubscriptionFee() {
-        return costOfSubscriptionFee;
+    public int getSubscriptionFee() {
+        return subscriptionFee;
     }
 
-    public int getNumberOfClients() {
-        return numberOfClients;
+    public int getClients() {
+        return clients;
     }
 
     @Override
     public String toString() {
-        return "\nMobile plan: " + this.nameOfMobilePlan + " |Subscription Fee per/month: $" + this.costOfSubscriptionFee +
-                " |Number of clients: " + this.numberOfClients;
+        return "\nMobile plan: " + this.name + " |Subscription Fee per/month: $" + this.subscriptionFee +
+                " |Number of clients: " + this.clients;
     }
 }

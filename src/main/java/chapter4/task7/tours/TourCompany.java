@@ -1,6 +1,5 @@
 package chapter4.task7.tours;
 
-import chapter4.task7.tours.Tour;
 import chapter4.task7.tours.cruise.CaribbeanOne;
 import chapter4.task7.tours.cruise.CaribbeanTwo;
 import chapter4.task7.tours.excursion.GrandCanyonOne;
@@ -88,10 +87,10 @@ public class TourCompany {
 
     public void showSortedTours() {
         Collections.sort(tours, (Tour t1, Tour t2) -> {
-            return t1.getCOST() - t2.getCOST();
+            return t1.getCost() - t2.getCost();
         });
         for (Tour tour : tours) {
-            System.out.println(tour.getType() + " - " + tour.getCOST() + " $.");
+            System.out.println(tour.getType() + " - " + tour.getCost() + " $.");
         }
     }
 

@@ -1,38 +1,38 @@
 package chapter4.task7.tours;
 
 import chapter4.task7.enums.Duration;
-import chapter4.task7.enums.Food;
+import chapter4.task7.enums.TypeOfService;
 import chapter4.task7.enums.Transfer;
 
 public class Tour {
 
     public String type;
-    final private Duration duration;
-    final private Food food;
-    final private Transfer transfer;
-    final private int COST;
+    private final Duration duration;
+    private final TypeOfService typeOfService;
+    private final Transfer transfer;
+    private final int cost;
 
-    public Tour(Duration duration, Food food, Transfer transfer, int COST) {
+    public Tour(Duration duration, TypeOfService typeOfService, Transfer transfer, int cost) {
         this.duration = duration;
-        this.food = food;
+        this.typeOfService = typeOfService;
         this.transfer = transfer;
-        this.COST = COST;
+        this.cost = cost;
     }
 
     public Duration getDuration() {
         return duration;
     }
 
-    public Food getFood() {
-        return food;
+    public TypeOfService getTypeOfService() {
+        return typeOfService;
     }
 
     public Transfer getTransfer() {
         return transfer;
     }
 
-    public int getCOST() {
-        return COST;
+    public int getCost() {
+        return cost;
     }
 
     public String getType() {
@@ -41,7 +41,7 @@ public class Tour {
 
     @Override
     public String toString() {
-        return "\n--------------------------\nType: " + type + " \n|Duration: " + duration + " \n|Food: " + food + " \n|Transfer: " + transfer
-                + " \n|Cost: " + COST + " $.";
+        return "\n--------------------------\nType: " + type + " \n|Duration: " + duration + " \n|TypeOfService: " + typeOfService + " \n|Transfer: " + transfer
+                + " \n|Cost: " + cost + " $.";
     }
 }

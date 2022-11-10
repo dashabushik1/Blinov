@@ -14,8 +14,6 @@
  */
 package chapter4.task7;
 
-import chapter4.task7.consolemenu.Menu;
-
 public class Main {
 
     public static void main(String[] args) {

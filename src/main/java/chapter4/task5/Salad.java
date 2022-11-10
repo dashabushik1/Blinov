@@ -1,4 +1,4 @@
-package chapter4.task5.salad;
+package chapter4.task5;
 
 import chapter4.task5.comparators.CaloriesComparator;
 import chapter4.task5.comparators.WeightComparator;
@@ -8,11 +8,11 @@ import java.util.*;
 
 public class Salad {
 
-    private String nameOfSalad; // название салата
+    private String name; // название салата
     private List<Ingredient> ingredients = new ArrayList<>(); // иргредиенты салата
 
     public Salad() {
-        nameOfSalad = "Cesar";
+        name = "Cesar";
     }
 
     public void addIngredients(Ingredient ingredient) {
@@ -20,8 +20,8 @@ public class Salad {
     }
 
     public void showRecipe() {
-        if (nameOfSalad.equals("Cesar")) {
-            System.out.println("The salad " + nameOfSalad + " contains:");
+        if (name.equals("Cesar")) {
+            System.out.println("The salad " + name + " contains:");
         }
         for (Ingredient ingredient : ingredients) {
             System.out.println(ingredient);

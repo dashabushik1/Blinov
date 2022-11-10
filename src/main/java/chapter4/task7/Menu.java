@@ -1,4 +1,4 @@
-package chapter4.task7.consolemenu;
+package chapter4.task7;
 
 import chapter4.task7.tours.TourCompany;
 

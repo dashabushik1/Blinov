@@ -4,8 +4,6 @@
  */
 package chapter7.task8;
 
-import java.util.Arrays;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -13,21 +11,24 @@ public class Main {
         String text = "London has many beautiful squares. One of the central square of the city is Trafalgar Square. " +
                 "St Paul’s Cathedral is the biggest English church. Another famous church is Westminster Abbey. " +
                 "London is also famous for its beautiful parks: Hyde Park is one of the most famous park in the world.";
+        int count = 1;
 
-        String wordOne = "London";
-        String wordTwo = "Square";
-        String wordThree = "Church";
-        String wordFour = "Park";
-
-        System.out.println("Word '" + wordOne + "' - " + findWords(text, wordOne));
-        System.out.println("Word '" + wordTwo + "' - " + findWords(text, wordTwo));
-        System.out.println("Word '" + wordThree + "' - " + findWords(text, wordThree));
-        System.out.println("Word '" + wordFour + "' - " + findWords(text, wordFour));
-    }
-
-    private static long findWords(String text, String w) {
-        return Arrays.stream(text.toLowerCase().split("\\s")) // почему long, не int? высветилось авто
-                .filter(word -> word.contains(w.toLowerCase()))
-                .count();
+        String[] words = text.toLowerCase().split(" ");
+        int wordsLength = words.length;
+        for (int i = 0; i < wordsLength; i++) {
+            String word = words[i];
+            for (int j = i + 1; j < wordsLength - 1; j++) {
+                if (word.equals(words[j])) {
+                    count++;
+                    for (int k = j; k < wordsLength - 1; k++) {
+                        words[k] = words[k + 1];
+                    }
+                    wordsLength--;
+                    j--;
+                }
+            }
+            System.out.println(word + " - " + count);
+            count = 0;
+        }
     }
 }

@@ -10,16 +10,6 @@ public class Main {
 
         DiscriminantInterface discriminant = (a, b, c) -> {
             double d = b * b - 4 * a * c;
-            if (d > 0) {
-                double rootOne = (-b - Math.sqrt(d)) / (2 * a);
-                double rootTwo = (-b + Math.sqrt(d)) / (2 * a);
-                System.out.print("The solution has two roots: first= " + rootOne + ", second= " + rootTwo);
-            } else if (d == 0) {
-                double root = -b / (2 * a);
-                System.out.print("The solution has one root = " + root);
-            } else {
-                System.out.print("The solution has no roots.");
-            }
             return d;
         };
 

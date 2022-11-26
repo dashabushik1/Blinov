@@ -10,10 +10,8 @@ public class Main {
 
         TriangleInterface radius = (a, b) -> {
             double c = Math.sqrt((a * a) + (b * b));
-            double r = (a + b + c) / 2;
-            return r;
+            return (a + b + c) / 2;
         };
-
         System.out.println(radius.calculateRadius(4, 3));
     }
 }

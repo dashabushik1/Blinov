@@ -10,7 +10,7 @@ public class Main {
 
         FactorialInterface factorial = n -> {
             int result = 1;
-            for (int i = result; i <= n; i++) {
+            for (int i = 2; i <= n; i++) {
                 result *= i;
             }
             return result;

@@ -5,21 +5,26 @@
 package chapter7.task11;
 
 import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class Main {
 
     public static void main(String[] args) {
         int[] numbers = {1, 5, 10, 44, 67, 99, 100, 3, 55, 54, 90};
-        List<Integer> list;
+        int j = 0;
 
-        list = Arrays.stream(numbers)
-                .map(i -> i % 2 == 0 ? 0 : i)
-                .boxed()
-                .sorted((f, s) -> f == 0 ? 1 : s == 0 ? -1 : 0)
-                .collect(Collectors.toList());
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] % 2 == 0) {
+                numbers[i] = 0;
+            }
+            if (numbers[i] != 0) {
+                numbers[j++] = numbers[i];
+            }
+        }
 
-        System.out.println(list);
+        for (int i = j; i < numbers.length; i++) {
+            numbers[i] = 0;
+        }
+
+        System.out.println(Arrays.toString(numbers));
     }
 }

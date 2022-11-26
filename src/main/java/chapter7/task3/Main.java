@@ -13,17 +13,17 @@ public class Main {
     public static void main(String[] args) {
 
         User[] users = new User[]{
-                new User(1L, 27, "John", "United States"),
-                new User(2L, 34, "Mary", "Canada"),
-                new User(3L, 41, "Liam", "Sweden"),
-                new User(4L, 37, "Olivia", "Sweden"),
-                new User(5L, 25, "Sarah", "Germany"),
-                new User(6L, 32, "Ellie", "United States"),
-                new User(7L, 36, "Michael", "Sweden"),
-                new User(8L, 29, "Charles", "Canada"),
-                new User(9L, 23, "Rick", "Germany"),
-                new User(10L, 30, "Melissa", "Canada"),
-                new User(11L, 45, "Erick", "Sweden")
+                new User(1, 27, "John", "United States"),
+                new User(2, 34, "Mary", "Canada"),
+                new User(3, 41, "Liam", "Sweden"),
+                new User(4, 37, "Olivia", "Sweden"),
+                new User(5, 25, "Sarah", "Germany"),
+                new User(6, 32, "Ellie", "United States"),
+                new User(7, 36, "Michael", "Sweden"),
+                new User(8, 29, "Charles", "Canada"),
+                new User(9, 23, "Rick", "Germany"),
+                new User(10, 30, "Melissa", "Canada"),
+                new User(11, 45, "Erick", "Sweden")
         };
 
         System.out.println("Unsorted users: ");

@@ -18,13 +18,8 @@ public class Main {
     }
 
     public static double getPayment(String string, double cost) {
-        int count = 0;
-        if ((string != null) && (string.length() > 0)) {
-            String[] words = string.split("[\\s,.!?\\d]+");
-            count = words.length;
-        } else {
-            System.out.println("String is null.");
-        }
+        String[] words = string.split("[\\s,.!?\\d]+");
+        int count = words.length;
         return cost * count;
     }
 }

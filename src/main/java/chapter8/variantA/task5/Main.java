@@ -10,13 +10,8 @@ public class Main {
         String text = "Cinema is an integral part of the social life of people." +
                 "(The movie combines not only stunts, special effects and scenery, but also the genuine art.)" +
                 "Many people go to the cinemas in their free time.";
-        String result;
 
-        if ((text != null) && (text.length() > 0)) {
-            result = text.replaceAll("[(].*[)]", " ");
-            System.out.println(result);
-        } else {
-            System.out.println("Text is null.");
-        }
+        String result = text.replaceAll("[(].*[)]", " ");
+        System.out.println(result);
     }
 }

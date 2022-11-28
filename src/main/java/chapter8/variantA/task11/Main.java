@@ -12,7 +12,15 @@ public class Main {
                 "The movie combines not only stunts, special effects and scenery, but also the genuine art.\n" +
                 "Many people go to the cinemas in their free time.";
         String[] words = text.toLowerCase().split("[\\s.,!?\\d]+");
-        Arrays.sort(words);
+        for (int i = 0; i < words.length; i++) {
+            for (int j = i + 1; j < words.length; j++) {
+                if (words[i].compareTo(words[j]) > 0) {
+                    String word = words[i];
+                    words[i] = words[j];
+                    words[j] = word;
+                }
+            }
+        }
         for (int i = 0; i < words.length; i++) {
             System.out.println(words[i]);
         }

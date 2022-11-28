@@ -14,10 +14,57 @@ public class Main {
         System.out.println("Enter password: ");
         String password = scanner.next();
 
-        System.out.println(isStrong(password));
+        if (!isRequiredLength(password)) {
+            System.out.println("Password must have at least 10 characters.");
+        }
+
+        if (!isHasAtLeastOneDigit(password)) {
+            System.out.println("Password is true.");
+        }
     }
 
-    public static boolean isStrong(String password) {
-        return password.matches("(?=.*[A-Z])(?=.*[a-z]).(?=.*\\d)(?=\\S+$)(?=.*_).{10,}");
+    public static boolean isRequiredLength(String password) {
+        if (password.length() >= 10) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean isHasAtLeastOneDigit(String password) {
+        int numCount = 0;
+        for (int i = 0; i < password.length(); i++) {
+            char ch = password.charAt(i);
+            if (Character.isDigit(ch)) {
+                numCount++;
+            } else {
+                return false;
+            }
+        }
+        return ((numCount >= 1));
+    }
+
+    public static boolean isHasAtLeastOneUpperAndLowerLetter(String password) {
+        int lowerCount = 0;
+        int upperCount = 0;
+        for (int i = 0; i < password.length(); i++) {
+            char ch = password.charAt(i);
+            if (Character.isUpperCase(ch)) {
+                upperCount++;
+            } else if (Character.isLowerCase(ch)) {
+                lowerCount++;
+            }
+        }
+        return((upperCount >= 1) && (lowerCount >= 1));
+    }
+
+    public static boolean isHasAtLeastOneSymbol(String password) {
+        int symbolCount = 0;
+        for (int i = 0; i < password.length(); i++) {
+            if (password.charAt(i) == '_') {
+                symbolCount++;
+            }
+        }
+        return (symbolCount >= 1);
     }
 }

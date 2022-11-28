@@ -1,12 +1,12 @@
 /**
  * 1. С помощью каррирования реализовать функцию сложения двух чисел, функцию проверки строки на регулярное выражение,
  * функцию разбиения строки по регулярному выражению.
- * (Каррирование — преобразование функции от многих аргументов
- * в набор функций, каждая из которых является функцией от одного аргумента.)
+ * (Каррирование — преобразование функции от многих аргументов к функции от одного аргумента.)
  */
 package chapter7.task1;
 
 import java.util.Arrays;
+import java.util.function.BinaryOperator;
 import java.util.function.Consumer;
 
 public class Function {
@@ -15,9 +15,9 @@ public class Function {
         String line = "My favourite book by Charlotte Bronte is Jane Eyre.\nJane Eyre is an autobiographical novel.";
         String regex = "\n";
 
-        // функция сложения двух чисел с помощью функционального интерфейса Addition
-        Addition operation = (a, b) -> a + b;
-        int result = operation.calculate(100, 10);
+        // функция сложения двух чисел с помощью функционального интерфейса BinaryOperator
+        BinaryOperator<Integer> addition = (a, b) -> a + b;
+        int result = addition.apply(100, 10);
         System.out.println(result);
 
         //функция проверки строки на регулярное выражение c помощью функционального интерфейса Consumer

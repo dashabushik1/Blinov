@@ -5,7 +5,7 @@
  */
 package chapter8.variantC.task1;
 
-import java.util.Scanner;  //1As_drT23A
+import java.util.Scanner;
 
 public class Main {
 
@@ -14,39 +14,52 @@ public class Main {
         System.out.println("Enter password: ");
         String password = scanner.next();
 
-        if (!isRequiredLength(password)) {
-            System.out.println("Password must have at least 10 characters.");
-        }
+        System.out.println(validatePassword(password));
+    }
 
-        if (!isHasAtLeastOneDigit(password)) {
-            System.out.println("Password is true.");
+    public static String validatePassword(String password) {
+        String result = " ";
+        if (isRequiredLength(password)) {
+            result = "Password must have at least 10 characters!";
+        } else if (!isHasAtLeastOneDigit(password)) {
+            result = "Password must have at least one digit!";
+        } else if (!isHasAtLeastOneUpperAndLowerLetter(password)) {
+            result = "Password must have at least one upper and one lower letter!";
+        } else if (!isHasAtLeastOneSymbol(password)) {
+            result = "Password must have at least one symbol '_'!";
+        } else {
+            result = "The password is correct!";
         }
+        return result;
     }
 
     public static boolean isRequiredLength(String password) {
-        if (password.length() >= 10) {
-            return true;
-        } else {
-            return false;
+        boolean isTrue = false;
+        if (password.length() < 10) {
+            isTrue = true;
         }
+        return isTrue;
     }
 
     public static boolean isHasAtLeastOneDigit(String password) {
         int numCount = 0;
+        boolean isNum = false;
         for (int i = 0; i < password.length(); i++) {
             char ch = password.charAt(i);
             if (Character.isDigit(ch)) {
                 numCount++;
-            } else {
-                return false;
+            }
+            if (numCount >= 1) {
+                isNum = true;
             }
         }
-        return ((numCount >= 1));
+        return isNum;
     }
 
     public static boolean isHasAtLeastOneUpperAndLowerLetter(String password) {
         int lowerCount = 0;
         int upperCount = 0;
+        boolean isLetter = false;
         for (int i = 0; i < password.length(); i++) {
             char ch = password.charAt(i);
             if (Character.isUpperCase(ch)) {
@@ -54,17 +67,24 @@ public class Main {
             } else if (Character.isLowerCase(ch)) {
                 lowerCount++;
             }
+            if ((upperCount >= 1) && (lowerCount >= 1)) {
+                isLetter = true;
+            }
         }
-        return((upperCount >= 1) && (lowerCount >= 1));
+        return isLetter;
     }
 
     public static boolean isHasAtLeastOneSymbol(String password) {
         int symbolCount = 0;
+        boolean isSymbol = false;
         for (int i = 0; i < password.length(); i++) {
             if (password.charAt(i) == '_') {
                 symbolCount++;
             }
+            if (symbolCount >= 1) {
+                isSymbol = true;
+            }
         }
-        return (symbolCount >= 1);
+        return isSymbol;
     }
 }

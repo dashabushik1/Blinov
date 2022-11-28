@@ -18,7 +18,6 @@ public class Main {
     }
 
     public static boolean isStrong(String password) {
-        return password.matches("^(?=.*[A-Z])(?=.*[a-z]).(?=.*\\d)(?=\\S+$)(?=.*_).{10,}$"); // (?=.*_) ?
+        return password.matches("(?=.*[A-Z])(?=.*[a-z]).(?=.*\\d)(?=\\S+$)(?=.*_).{10,}");
     }
 }
-

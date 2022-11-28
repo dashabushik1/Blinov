@@ -1,7 +1,7 @@
 /**
  * 3. После каждого слова текста, заканчивающегося заданной подстрокой, вставить указанное слово.
  */
-package chapter8.variantA.task3;
+package chapter8.variantA.task3;   // StringBuffer is synchronized, StringBuilder is not.
 
 public class Main {
 
@@ -12,19 +12,15 @@ public class Main {
         String suffix = "al";
         String string = "**";
 
-        if ((text != null) && (text.length() > 0)) {
-            String[] splittedText = text.split(" ");
-            StringBuffer newText = new StringBuffer();
-            for (int i = 0; i < splittedText.length; i++) {
-                if (!splittedText[i].endsWith(suffix)) {
-                    newText.append(splittedText[i]).append(" ");
-                } else {
-                    newText.append(splittedText[i]).append(string).append(" ");
-                }
+        String[] splittedText = text.split(" ");
+        StringBuilder newText = new StringBuilder();
+        for (int i = 0; i < splittedText.length; i++) {
+            if (splittedText[i].endsWith(suffix)) {
+                newText.append(splittedText[i]).append(string).append(" ");
+            } else {
+                newText.append(splittedText[i]).append(" ");
             }
-            System.out.println(newText);
-        } else {
-            System.out.println("Text is null.");
         }
+        System.out.println(newText);
     }
 }

@@ -10,22 +10,19 @@ public class Main {
                 "The movie combines not only stunts, special effects and scenery, but also the genuine art." +
                 "Many people go to the cinemas in their free time.";
         String vowels = "aeiouy"; // гласные
-        int count = 0; // все буквы
         int countVowels = 0; // счетчик гласных
+        int countConsonant = 0; // счетчик согласных
 
-        if ((text != null) && (text.length() > 0)) {
-            char[] charArray = text.toLowerCase().toCharArray();
-            for (char x : charArray) {
-                if (Character.isLetter(x)) { // считаем все буквы в тексте
-                    count++;
-                }
-                if (vowels.indexOf(x) != -1) { // если буква совпадает с одной из гласных - записываем в countVowels
+        for (int i = 0; i < text.length(); i++) {
+            char letter = text.toLowerCase().charAt(i);
+            if (Character.isLetter(letter)) {
+                if (vowels.indexOf(letter) >= 0) { // если буква совпадает с одной из гласных - записываем в countVowels
                     countVowels++;
+                } else {
+                    countConsonant++;
                 }
             }
-            System.out.println("Vowels = " + countVowels + "\nConstants = " + (count - countVowels));
-        } else {
-            System.out.println("Text is null.");
         }
+        System.out.println("Vowels = " + countVowels + "\nNot vowels = " + countConsonant);
     }
 }

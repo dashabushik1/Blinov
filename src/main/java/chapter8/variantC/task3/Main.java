@@ -16,7 +16,7 @@ public class Main {
     }
 
     public static String getJustifiedText(String text, int maxChars) {
-        String[] words = text.split(" "); // 35
+        String[] words = text.split(" ");
         StringBuilder justifiedText = new StringBuilder();
         int currentChars = 0;
         for (String word : words) {

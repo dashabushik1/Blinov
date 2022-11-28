@@ -12,17 +12,30 @@ public class Main {
                 "Like a diamond in the sky.";
         int count = 0;
 
-        if ((verse != null) && (verse.length() > 0)) {
-            String[] words = verse.toLowerCase().split("[\\s.,?!\\d]+");
-            for (String word : words) {
-                if ((word.startsWith("a")) || (word.startsWith("e")) || (word.startsWith("i"))
-                        || (word.startsWith("o")) || (word.startsWith("u")) || (word.startsWith("y"))) {
-                    count++;
-                }
+        String[] words = verse.toLowerCase().split("[\\s.,?!\\d]+");
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < words.length; i++) {
+            if ((isVowel(words[i].charAt(0)) &&
+                    (isVowel(words[i].charAt(words[i].length() - 1))))) {
+                sb.append(words[i]).append(" ");
+                count++;
             }
-            System.out.println(count);
-        } else {
-            System.out.println("Verse is null.");
+        }
+        System.out.println(sb + " " + "\nCount: " + count);
+    }
+
+    public static boolean isVowel(char ch) {
+        switch (ch) {
+            case 'a':
+            case 'e':
+            case 'i':
+            case 'o':
+            case 'u':
+            case 'y':
+                return true;
+            default:
+                return false;
+
         }
     }
 }

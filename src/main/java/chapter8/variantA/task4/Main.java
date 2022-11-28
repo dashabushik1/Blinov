@@ -11,15 +11,13 @@ public class Main {
                 "The )movie combines not only ^stunts, special effects and scenery, but also the genuine art!" +
                 "Many people( go to the cinemas in !their free time.";
 
-        if ((text != null) && (text.length() > 0)) {
-            char[] charArray = text.toLowerCase().toCharArray();
-            for (char x : charArray) {
-                if (Character.isLetter(x)) {
-                    System.out.print(x + " ");
-                }
+        StringBuilder newText = new StringBuilder();
+        for (int i = 0; i < text.length(); i++) {
+            char letter = text.toLowerCase().charAt(i);
+            if (Character.isLetter(letter)) {
+                newText.append(letter).append(" ");
             }
-        } else {
-            System.out.println("Text is null.");
         }
+        System.out.println(newText);
     }
 }

@@ -13,16 +13,11 @@ public class Main {
         String symbol = "*";
         String[] words = text.split("[\\s.,?!\\d]+"); // \\d - 0-9, \\s - переносы
 
-        if ((text != null) && (text.length() > 0)) {
-            for (int i = 0; i < words.length; i++) {
-                if (words[i].length() >= 5) {
-                    words[i] = words[i].substring(0, k - 1) + symbol + words[i].substring(k);
-                }
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() >= k) {
+                words[i] = words[i].substring(0, k - 1) + symbol + words[i].substring(k);
             }
-            System.out.println(String.join(" ", words));
-        } else {
-            System.out.println("Text is null.");
         }
+        System.out.println(String.join(" ", words));
     }
 }
-

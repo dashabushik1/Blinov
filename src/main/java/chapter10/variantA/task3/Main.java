@@ -14,12 +14,12 @@ import java.io.*;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        String file = "/Users/daryabushik/Desktop/files/variantA/task3.txt";
-        String outputTask3 = "/Users/daryabushik/Desktop/files/variantA/outputTask3.txt";
+        String path = "/Users/daryabushik/Desktop/files/variantA/task3.txt";
+        String outputPath = "/Users/daryabushik/Desktop/files/variantA/outputTask3.txt";
 
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(file));
-            BufferedWriter writer = new BufferedWriter(new FileWriter(outputTask3));
+            BufferedReader reader = new BufferedReader(new FileReader(path));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(outputPath));
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] words = line.toLowerCase().split("[\\s,.!?]+");

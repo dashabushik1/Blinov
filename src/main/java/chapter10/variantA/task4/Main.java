@@ -16,7 +16,7 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        Map<String, String> foundWords = new HashMap<>();
+        Map<String, String> foundedWords = new HashMap<>();
 
         try {
             BufferedReader reader = new BufferedReader(new FileReader("/Users/daryabushik/Desktop/files/variantA/task4.txt"));
@@ -26,11 +26,11 @@ public class Main {
                 String[] words = line.split("[\\s.,?!]+");
                 for (int i = 0; i < words.length - 1; i++) {
                     if (Character.toLowerCase(words[i].charAt(words[i].length() - 1)) == Character.toLowerCase(words[i + 1].charAt(0))) {
-                        foundWords.put(words[i], words[i + 1]);
+                        foundedWords.put(words[i], words[i + 1]);
                     }
                 }
             }
-            writer.write(foundWords.toString());
+            writer.write(foundedWords.toString());
             writer.close();
         } catch (IOException e) {
             throw new RuntimeException(e);

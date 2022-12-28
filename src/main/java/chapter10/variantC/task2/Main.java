@@ -13,11 +13,11 @@ public class Main {
         File changedFile = new File("/Users/daryabushik/Desktop/files/variantC/outputTask2.txt");
 
         if (file.exists()) {
-            try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
-                 BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(changedFile))) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(file));
+                 BufferedWriter writer = new BufferedWriter(new FileWriter(changedFile))) {
                 String line;
-                while ((line = bufferedReader.readLine()) != null) {
-                    bufferedWriter.append(line.replace("public", "private")).append(System.lineSeparator());
+                while ((line = reader.readLine()) != null) {
+                    writer.append(line.replace("public", "private")).append(System.lineSeparator());
                 }
             }
         }

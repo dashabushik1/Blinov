@@ -22,13 +22,13 @@ import java.util.regex.Pattern;
 public class Main {
 
     public static void main(String[] args) {
-        Path failPath = Paths.get("/Users/daryabushik/Desktop/files/variantA/task5.txt");
+        Path path = Paths.get("/Users/daryabushik/Desktop/files/variantA/task5.txt");
         String result = null;
         int maxLength = 0;
 
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("/Users/daryabushik/Desktop/files/variantA/outputTask5.txt"));
-            List<String> lines = Files.readAllLines(failPath);
+            List<String> lines = Files.readAllLines(path);
             for (String line : lines) {
                 Matcher matcher = Pattern.compile("\\d+").matcher(line);
                 while (matcher.find()) {

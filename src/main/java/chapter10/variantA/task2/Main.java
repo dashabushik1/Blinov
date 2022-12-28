@@ -16,15 +16,15 @@ public class Main {
     public static void main(String[] args) throws IOException {
         String path = "/Users/daryabushik/Desktop/files/variantA/task2.txt";
         String outputPath = "/Users/daryabushik/Desktop/files/variantA/outputTask2.txt";
-        String substringForReplacement = "all";
-        String substringToReplace = "all     ";
+        String substringToReplace = " ";
+        String replacement = "**";
 
         try {
             BufferedReader reader = new BufferedReader(new FileReader(path));
             BufferedWriter writer = new BufferedWriter(new FileWriter(outputPath));
             String line;
             while ((line = reader.readLine()) != null) {
-                line = line.toLowerCase().replaceAll(substringForReplacement, substringToReplace);
+                line = line.toLowerCase().replaceAll(substringToReplace, replacement);
                 writer.write(line);
                 writer.write(System.lineSeparator());
             }

@@ -15,11 +15,11 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        String filePath = "/Users/daryabushik/Desktop/files/variantA/task1.txt";
+        String path = "/Users/daryabushik/Desktop/files/variantA/task1.txt";
         String substringToRemove = "dolls";
 
         try (PrintWriter writer = new PrintWriter("/Users/daryabushik/Desktop/files/variantA/outputTask1.txt")) {
-            String result = fileToString(filePath);
+            String result = fileToLines(path);
             result = result.replaceAll(substringToRemove, "");
             writer.append(result);
         } catch (Exception e) {
@@ -27,8 +27,8 @@ public class Main {
         }
     }
 
-    public static String fileToString(String filePath) throws Exception { // метод конвертирует файл в строки
-        Scanner scanner = new Scanner(new File(filePath));
+    public static String fileToLines(String path) throws Exception { // метод конвертирует файл в строки
+        Scanner scanner = new Scanner(new File(path));
         StringBuilder sb = new StringBuilder();
         while (scanner.hasNextLine()) {
             String input = scanner.nextLine();

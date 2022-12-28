@@ -11,7 +11,7 @@ import java.util.Map;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        String path = "/Users/daryabushik/Desktop/files/task7.txt";
+        String path = "/Users/daryabushik/Desktop/files/variantC/outputTask7.txt";
         File outputFile = new File(path);
         Map<String, String> data = new HashMap<>();
 
@@ -19,7 +19,11 @@ public class Main {
         data.put("Sofia", "1001254");
         data.put("Paul", "6790056");
         data.put("Mary", "5439077");
+        data.put("Kira", "2238700");
+        data.put("Anastasia", "8907890");
+        data.put("Aleksandr", "6549011");
         data.put("Lucas", "1227832");
+
 
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile));

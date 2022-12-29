@@ -21,7 +21,6 @@ public class Parking {
     }
 
     public void arriveCar() {
-
         if (count == 0) {
             System.out.println("There are no more empty places!");
         } else {

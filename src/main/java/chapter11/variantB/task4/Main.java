@@ -1,23 +1,38 @@
 /**
- * 4. Реализовать класс, моделирующий работу N-местной автостоянки. Машина
- * подъезжает к определенному месту и едет вправо, пока не встретится свободное место.
- * Класс должен поддерживать методы, обслуживающие приезд и отъезд машины.
+ * 5. Задан список целых чисел и некоторое число X. Не используя вспомогательных объектов и методов сортировки
+ * и не изменяя размера списка, переставить элементы списка так,
+ * чтобы сначала шли числа, не превосходящие X, а затем числа, больше X.
  */
 package chapter11.variantB.task4;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(20);
+        numbers.add(3);
+        numbers.add(-10);
+        numbers.add(8);
+        numbers.add(100);
+        numbers.add(-32);
+        int x = 50;
 
-        Parking parking = new Parking(10);
+        System.out.println(getList(numbers, x));
 
-        for (int i = 0; i < 11; i++) {
-            parking.arriveCar();
+    }
+    public static List<Integer> getList(List<Integer> list, int x) {
+        int right = 0; // < 3
+        int left = 0; // > 3
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i) > x) {
+                left = list.get(i);
+            } else {
+                right = list.get(i);
+            }
         }
-        parking.leaveCar();
-        parking.leaveCar();
-        for (int i = 0; i < parking.getParking().size(); i++) {
-            System.out.println(parking.getParking().get(i));
-        }
+        return list;
     }
 }

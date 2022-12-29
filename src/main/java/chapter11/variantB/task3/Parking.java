@@ -1,4 +1,4 @@
-package chapter11.variantB.task4;
+package chapter11.variantB.task3;
 
 import java.util.ArrayList;
 import java.util.Objects;

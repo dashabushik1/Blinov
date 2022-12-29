@@ -14,7 +14,6 @@ public class ProgramTwo { // LinkedList
         System.out.println(findLastPerson(n, 2));
     }
 
-
     public static void fillLinkedList(int n, LinkedList<Integer> linkedList) { // заполнили и вывели лист
         for (int i = 0; i < n; i++) {
             linkedList.add(i + 1);

@@ -9,16 +9,14 @@ import java.io.*;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        File file = new File("/Users/daryabushik/Desktop/files/variantC/Student.txt");
-        File changedFile = new File("/Users/daryabushik/Desktop/files/variantC/outputTask2.txt");
+        File file = new File("./src/main/java/chapter10/variantC/task2/student.txt");
+        File changedFile = new File("./src/main/java/chapter10/variantC/task2/outputTask2.txt");
 
-        if (file.exists()) {
-            try (BufferedReader reader = new BufferedReader(new FileReader(file));
-                 BufferedWriter writer = new BufferedWriter(new FileWriter(changedFile))) {
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    writer.append(line.replace("public", "private")).append(System.lineSeparator());
-                }
+        try (BufferedReader reader = new BufferedReader(new FileReader(file));
+             BufferedWriter writer = new BufferedWriter(new FileWriter(changedFile))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                writer.append(line.replace("public", "private")).append(System.lineSeparator());
             }
         }
     }

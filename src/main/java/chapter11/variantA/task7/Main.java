@@ -18,7 +18,7 @@ public class Main {
     }
 
     public static List<Integer> createNewList() {
-        ArrayList<Integer> integers = new ArrayList<>();
+        List<Integer> integers = new ArrayList<>();
         integers.add(-2);
         integers.add(13);
         integers.add(7);

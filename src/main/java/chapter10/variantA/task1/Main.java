@@ -14,26 +14,27 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
-        String path = "/Users/daryabushik/Desktop/files/variantA/task1.txt";
+    public static void main(String[] args) throws IOException {
+        String path = "./src/main/java/chapter10/variantA/task1/task1.txt";
+        String output = "./src/main/java/chapter10/variantA/task1/outputTask1.txt";
         String substringToRemove = "dolls";
 
-        try (PrintWriter writer = new PrintWriter("/Users/daryabushik/Desktop/files/variantA/outputTask1.txt")) {
-            String result = fileToLines(path);
-            result = result.replaceAll(substringToRemove, "");
-            writer.append(result);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        try (FileWriter writer = new FileWriter(output)) {
+            String result = readLinesFromFile(path).toString().replaceAll(substringToRemove, "");
+            writer.write(result);
+            writer.write("\n");
         }
+        // try-with-resources - позволяет объявлять ресурсы для использования в блоке try с гарантией того,
+        // что ресурсы будут закрыты после выполнения этого блока.
     }
 
-    public static String fileToLines(String path) throws Exception { // метод конвертирует файл в строки
-        Scanner scanner = new Scanner(new File(path));
-        StringBuilder sb = new StringBuilder();
-        while (scanner.hasNextLine()) {
-            String input = scanner.nextLine();
-            sb.append(input.toLowerCase());
+    public static StringBuilder readLinesFromFile(String path) throws IOException { // метод читает файл построчно
+        try (Scanner scanner = new Scanner(new File(path))) {
+            StringBuilder sb = new StringBuilder();
+            while (scanner.hasNextLine()) {
+                sb.append(scanner.nextLine().toLowerCase());
+            }
+            return sb;
         }
-        return sb.toString();
     }
 }

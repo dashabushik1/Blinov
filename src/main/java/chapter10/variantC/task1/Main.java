@@ -10,16 +10,15 @@ import java.io.IOException;
 
 public class Main {
 
-    public static void main(String[] args) {
-        File outputFile = new File("/Users/daryabushik/Desktop/files/variantC/randomNumbers.txt");
+    public static void main(String[] args) throws IOException {
+        File outputFile = new File("./src/main/java/chapter10/variantC/task1/outputTask1.txt");
 
-        int length = 10;
-        int[] randomNumbers = new int[length];
-        for (int i = 0; i < length; i++) {
+        int[] randomNumbers = new int[10];
+        for (int i = 0; i < randomNumbers.length; i++) {
             randomNumbers[i] = (int) ((Math.random() * 50) + 1);
         }
 
-        for (int i = length - 1; i > 0; i--) {
+        for (int i = randomNumbers.length - 1; i > 0; i--) {
             for (int j = 0; j < i; j++) {
                 if (randomNumbers[j] > randomNumbers[j + 1]) {
                     int k = randomNumbers[j];
@@ -29,17 +28,12 @@ public class Main {
             }
         }
 
-        try {
-            FileWriter writer = new FileWriter(outputFile);
+        try (FileWriter writer = new FileWriter(outputFile)) {
             for (int number : randomNumbers) {
                 String s = Integer.toString(number);
                 writer.write(s);
                 writer.append(" ");
-                System.out.println(s);
             }
-            writer.close();
-        } catch (IOException ex) {
-            throw new RuntimeException(ex);
         }
     }
 }

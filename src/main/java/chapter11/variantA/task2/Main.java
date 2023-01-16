@@ -12,14 +12,15 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int number = scanner.nextInt();
         Stack<Integer> stack = new Stack<>();  // Stack - структура данных, которая работает по принципу LIFO
-        int reverse = 0;                  // (элементы, которые помещаются в стек последними, выводятся первыми - и наоборот)
-        int i = 1;
+        // (элементы, которые помещаются в стек последними, выводятся первыми - и наоборот)
 
         while (number != 0) {
             stack.push(number % 10); // вложение элемента в стек
             number = number / 10;
         }
 
+        int reverse = 0;
+        int i = 1;
         while (!stack.isEmpty()) {
             reverse = reverse + (stack.peek() * i);
             stack.pop(); // удаление элемента из стека

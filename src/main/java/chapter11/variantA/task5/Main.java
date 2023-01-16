@@ -5,7 +5,6 @@ package chapter11.variantA.task5;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Stream;
 
 public class Main {
 
@@ -31,7 +30,8 @@ public class Main {
 
     public static Set<Integer> mergeSets(Set<Integer> s1, Set<Integer> s2) {
         Set<Integer> mergedSets = new HashSet<>();
-        Stream.of(s1, s2).forEach(mergedSets::addAll);
+        mergedSets.addAll(s1);
+        mergedSets.addAll(s2);
         return mergedSets;
     }
 

@@ -10,27 +10,23 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        File file = new File("/Users/daryabushik/Desktop/files/variantC/task6.txt");
-        String[] lines;
+        File file = new File("./src/main/java/chapter10/variantC/task6/task6.txt");
+        String[] words;
 
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(file));
-            BufferedWriter writer = new BufferedWriter(new FileWriter("/Users/daryabushik/Desktop/files/variantC/outputTask6.txt"));
+        try (BufferedReader reader = new BufferedReader(new FileReader(file));
+             BufferedWriter writer = new BufferedWriter(new FileWriter("./src/main/java/chapter10/variantC/task6/outputTask6.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                lines = line.split("[\\s.,]+");
+                words = line.split("[\\s.,]+");
                 StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < lines.length; i++) {
-                    String word = lines[0];
-                    lines[0] = lines[lines.length - 1];
-                    lines[lines.length - 1] = word;
-                    sb.append(lines[i]).append(" ");
+                for (int i = 0; i < words.length; i++) {
+                    String word = words[0];
+                    words[0] = words[words.length - 1];
+                    words[words.length - 1] = word;
+                    sb.append(words[i]).append(" ");
                 }
                 writer.write(sb.toString());
             }
-            writer.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
     }
 }

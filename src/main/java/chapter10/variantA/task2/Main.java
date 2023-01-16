@@ -11,26 +11,22 @@ package chapter10.variantA.task2;
 
 import java.io.*;
 
-public class Main {
+public class Main { // Абсолютный путь начинается с корневой директории. Относительный путь считается относительно какой-то директории.
 
     public static void main(String[] args) throws IOException {
-        String path = "/Users/daryabushik/Desktop/files/variantA/task2.txt";
-        String outputPath = "/Users/daryabushik/Desktop/files/variantA/outputTask2.txt";
+        String path = "./src/main/java/chapter10/variantA/task2/task2.txt";
+        String outputPath = "./src/main/java/chapter10/variantA/task2/outputTask2.txt";
         String substringToReplace = " ";
         String replacement = "**";
 
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(path));
-            BufferedWriter writer = new BufferedWriter(new FileWriter(outputPath));
+        try (BufferedReader reader = new BufferedReader(new FileReader(path));
+             BufferedWriter writer = new BufferedWriter(new FileWriter(outputPath))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 line = line.toLowerCase().replaceAll(substringToReplace, replacement);
                 writer.write(line);
                 writer.write(System.lineSeparator());
             }
-            writer.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
     }
 }

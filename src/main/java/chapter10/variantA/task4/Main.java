@@ -15,12 +15,11 @@ import java.util.*;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Map<String, String> foundedWords = new HashMap<>();
 
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader("/Users/daryabushik/Desktop/files/variantA/task4.txt"));
-            BufferedWriter writer = new BufferedWriter(new FileWriter("/Users/daryabushik/Desktop/files/variantA/outputTask4.txt"));
+        try (BufferedReader reader = new BufferedReader(new FileReader("./src/main/java/chapter10/variantA/task4/task4.txt"));
+             BufferedWriter writer = new BufferedWriter(new FileWriter("./src/main/java/chapter10/variantA/task4/outputTask4.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] words = line.split("[\\s.,?!]+");
@@ -31,9 +30,6 @@ public class Main {
                 }
             }
             writer.write(foundedWords.toString());
-            writer.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
     }
 }

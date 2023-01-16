@@ -1,0 +1,8 @@
+Petrov 4 5 4 4 4
+Baranov 8 10 5 7 9
+Strelkova 7 7 7 9 8
+Jukov 5 5 7 7 9
+Blinov 4 4 5 5 5
+Antonova 6 8 4 10 7
+Antoschenka 8 9 4 6 8
+Petrova 10 3 4 5 4

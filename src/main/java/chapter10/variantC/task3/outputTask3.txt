@@ -1,0 +1,66 @@
+{ tnedutS ssalc cilbup
+;eman gnirtS cilbup    
+;sserdda gnirtS cilbup    
+;di tni cilbup    
+;ega tni cilbup    
+;puorg tni cilbup    
+
+{ )puorg tni ,ega tni ,di tni ,sserdda gnirtS ,eman gnirtS(tnedutS cilbup    
+;eman = eman.siht        
+;sserdda = sserdda.siht        
+;di = di.siht        
+;ega = ega.siht        
+;puorg = puorg.siht        
+}    
+
+{ )(emaNteg gnirtS cilbup    
+;eman nruter        
+}    
+
+{ )eman gnirtS(emaNtes diov cilbup    
+;eman = eman.siht        
+}    
+
+{ )(sserddAteg gnirtS cilbup    
+;sserdda nruter        
+}    
+
+{ )sserdda gnirtS(sserddAtes diov cilbup    
+;sserdda = sserdda.siht        
+}    
+
+{ )(dIteg tni cilbup    
+;di nruter        
+}    
+
+{ )di tni(dItes diov cilbup    
+;di = di.siht        
+}    
+
+{ )(egAteg tni cilbup    
+;ega nruter        
+}    
+
+{ )ega tni(egAtes diov cilbup    
+;ega = ega.siht        
+}    
+
+{ )(puorGteg tni cilbup    
+;puorg nruter        
+}    
+
+{ )puorg tni(puorGtes diov cilbup    
+;puorg = puorg.siht        
+}    
+
+edirrevO@    
+{ )(gnirtSot gnirtS cilbup    
++ "{tnedutS" nruter        
++ ''\' + eman + "'=eman"                
++ ''\' + sserdda + "'=sserdda ,"                
++ di + "=di ,"                
++ ega + "=ega ,"                
++ puorg + "=puorg ,"                
+;'}'                
+}    
+}

@@ -1,0 +1,66 @@
+private class Student {
+    private String name;
+    private String address;
+    private int id;
+    private int age;
+    private int group;
+
+    private Student(String name, String address, int id, int age, int group) {
+        this.name = name;
+        this.address = address;
+        this.id = id;
+        this.age = age;
+        this.group = group;
+    }
+
+    private String getName() {
+        return name;
+    }
+
+    private void setName(String name) {
+        this.name = name;
+    }
+
+    private String getAddress() {
+        return address;
+    }
+
+    private void setAddress(String address) {
+        this.address = address;
+    }
+
+    private int getId() {
+        return id;
+    }
+
+    private void setId(int id) {
+        this.id = id;
+    }
+
+    private int getAge() {
+        return age;
+    }
+
+    private void setAge(int age) {
+        this.age = age;
+    }
+
+    private int getGroup() {
+        return group;
+    }
+
+    private void setGroup(int group) {
+        this.group = group;
+    }
+
+    @Override
+    private String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", id=" + id +
+                ", age=" + age +
+                ", group=" + group +
+                '}';
+    }
+}

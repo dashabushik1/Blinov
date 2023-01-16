@@ -10,14 +10,12 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-
-        File file = new File("/Users/daryabushik/Desktop/files/variantC/students.txt");
-        File outputFile = new File("/Users/daryabushik/Desktop/files/variantC/outputTask5.txt");
+        File file = new File("./src/main/java/chapter10/variantC/task5/student.txt");
+        File outputFile = new File("./src/main/java/chapter10/variantC/task5/outputTask5.txt");
         String[] students;
 
-        try {
-            Scanner scanner = new Scanner(file);
-            PrintWriter writer = new PrintWriter(outputFile);
+        try (Scanner scanner = new Scanner(file);
+             PrintWriter writer = new PrintWriter(outputFile)) {
             while (scanner.hasNextLine()) {
                 students = scanner.nextLine().split("\\s+");
                 double sum = 0;
@@ -29,10 +27,6 @@ public class Main {
                     writer.write(System.lineSeparator());
                 }
             }
-            scanner.close();
-            writer.close();
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
         }
     }
 }

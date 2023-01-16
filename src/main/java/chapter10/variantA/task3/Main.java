@@ -14,12 +14,11 @@ import java.io.*;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        String path = "/Users/daryabushik/Desktop/files/variantA/task3.txt";
-        String outputPath = "/Users/daryabushik/Desktop/files/variantA/outputTask3.txt";
+        String path = "./src/main/java/chapter10/variantA/task3/task3.txt";
+        String outputPath = "./src/main/java/chapter10/variantA/task3/outputTask3.txt";
 
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(path));
-            BufferedWriter writer = new BufferedWriter(new FileWriter(outputPath));
+        try (BufferedReader reader = new BufferedReader(new FileReader(path));
+             BufferedWriter writer = new BufferedWriter(new FileWriter(outputPath))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] words = line.toLowerCase().split("[\\s,.!?]+");
@@ -30,10 +29,6 @@ public class Main {
                     }
                 }
             }
-            writer.close();
-        } catch (
-                IOException e) {
-            throw new RuntimeException(e);
         }
     }
 }

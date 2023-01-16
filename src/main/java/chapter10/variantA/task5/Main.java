@@ -21,28 +21,24 @@ import java.util.regex.Pattern;
 
 public class Main {
 
-    public static void main(String[] args) {
-        Path path = Paths.get("/Users/daryabushik/Desktop/files/variantA/task5.txt");
-        String result = null;
+    public static void main(String[] args) throws IOException {
+        Path path = Paths.get("./src/main/java/chapter10/variantA/task5/task5.txt");
+        String result;
         int maxLength = 0;
 
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("/Users/daryabushik/Desktop/files/variantA/outputTask5.txt"));
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("./src/main/java/chapter10/variantA/task5/outputTask5.txt"))) {
             List<String> lines = Files.readAllLines(path);
+            Pattern pattern = Pattern.compile("\\d+");
             for (String line : lines) {
-                Matcher matcher = Pattern.compile("\\d+").matcher(line);
+                Matcher matcher = pattern.matcher(line);
                 while (matcher.find()) {
                     result = matcher.group();
                     if (result.length() > maxLength) {
                         maxLength = result.length();
                     }
                 }
-                writer.write(result);
             }
-            writer.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+            writer.write(String.valueOf(maxLength));
         }
-        System.out.println(result + " " + maxLength);
     }
 }

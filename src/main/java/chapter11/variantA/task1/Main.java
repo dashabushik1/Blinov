@@ -13,8 +13,8 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        String output = "/Users/daryabushik/Desktop/collections/variantA/outputTask1.txt";
-        Path failPath = Paths.get("/Users/daryabushik/Desktop/collections/variantA/task1.txt");
+        Path failPath = Paths.get("./src/main/java/chapter11/variantA/task1/task1.txt");
+        String output = "./src/main/java/chapter11/variantA/task1/outputTask1.txt";
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(output))) {
             List<String> lines = Files.readAllLines(failPath);

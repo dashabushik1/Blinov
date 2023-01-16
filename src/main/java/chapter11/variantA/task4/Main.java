@@ -3,60 +3,59 @@
  */
 package chapter11.variantA.task4;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Stack;
 
 public class Main {
 
-    public static void main(String[] args) {  // todo
+    public static void main(String[] args) {
 
-        Stack<Integer> stack1 = new Stack<>();
-        stack1.push(1);
-        stack1.push(2);
-        stack1.push(3);
+        Stack<Integer> stackOne = new Stack<>();
+        stackOne.push(1);
+        stackOne.push(2);
+        stackOne.push(3);
 
-        Stack<Integer> stack2 = new Stack<>();
-        stack2.push(4);
-        stack2.push(5);
-        stack2.push(6);
-        stack2.push(7);
+        Stack<Integer> stackTwo = new Stack<>();
+        stackTwo.push(4);
+        stackTwo.push(5);
+        stackTwo.push(6);
+        stackTwo.push(7);
 
         System.out.println("---- BEFORE SWAP ----\n");
-        System.out.println("s1 -> " + stack1);
-        System.out.println("s2 -> " + stack2);
+        System.out.println("stack 1 -> " + stackOne);
+        System.out.println("stack 2 -> " + stackTwo);
 
-        swap(stack1, stack2);
+        Iterator<Integer> iteratorForFirstStack = stackOne.iterator();
+        Iterator<Integer> iteratorForSecondStack = stackTwo.iterator();
+
+        List<Integer> list = new ArrayList<>();
+        List<Integer> list2 = new ArrayList<>();
+
+        while (iteratorForFirstStack.hasNext()) {
+            list.add(iteratorForFirstStack.next());
+        }
+
+        while (iteratorForSecondStack.hasNext()) {
+            list2.add(iteratorForSecondStack.next());
+        }
+
+        stackOne.clear();
+
+        for (Integer integer : list2) {
+            stackOne.push(integer);
+        }
+
+        stackTwo.clear();
+
+        for (Integer integer : list) {
+            stackTwo.push(integer);
+        }
 
         System.out.println("\n---- AFTER SWAP ----\n");
-        System.out.println("s1 -> " + stack1);
-        System.out.println("s2 -> " + stack2);
-    }
+        System.out.println("stack 1 -> " + stackOne);
+        System.out.println("stack 2 -> " + stackTwo);
 
-    public static void swap(Stack<Integer> stack1, Stack<Integer> stack2) {
-        swap(stack1, stack2, stack1.size(), stack2.size());
-    }
-
-    public static void swap(Stack<Integer> stack1, Stack<Integer> stack2, int lengthStack1, int lengthStack2) {
-        int stack1Elem = 0;
-        int stack2Elem = 0;
-
-        if (stack1.isEmpty() && stack2.isEmpty()) {
-            return;
-        }
-
-        if (!stack1.isEmpty()) {
-            stack1Elem = stack1.pop(); // pop - извлечение элемента из стека
-        }
-        if (!stack2.isEmpty()) {
-            stack2Elem = stack2.pop();
-        }
-
-        swap(stack1, stack2);
-
-        if (stack1.size() < lengthStack2) {
-            stack1.add(stack2Elem);
-        }
-        if (stack2.size() < lengthStack1) {
-            stack2.add(stack1Elem);
-        }
     }
 }

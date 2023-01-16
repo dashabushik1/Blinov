@@ -43,8 +43,8 @@ public class Main {
     }
 
     public static void findRowsWithAKeyValueZero(Map<Integer, String> map) { // как найти строки, если HashMap не хранит одинаковые ключи?
-        map.entrySet()
-                .stream().filter(e -> e.getKey() == 0)
+        map.entrySet().stream()
+                .filter(e -> e.getKey() == 0)
                 .forEach(e -> System.out.print(e.getValue() + ", "));
     }
 

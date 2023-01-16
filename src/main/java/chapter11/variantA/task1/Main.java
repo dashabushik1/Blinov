@@ -12,22 +12,17 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class Main {
-
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         String output = "/Users/daryabushik/Desktop/collections/variantA/outputTask1.txt";
         Path failPath = Paths.get("/Users/daryabushik/Desktop/collections/variantA/task1.txt");
 
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(output));
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(output))) {
             List<String> lines = Files.readAllLines(failPath);
             StringBuilder builder = new StringBuilder();
             for (String line : lines) {
                 builder.append(line).reverse();
                 writer.write(builder.toString());
             }
-            writer.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
     }
 }

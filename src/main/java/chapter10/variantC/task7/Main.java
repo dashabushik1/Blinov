@@ -11,7 +11,7 @@ import java.util.Map;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        String path = "/Users/daryabushik/Desktop/files/variantC/outputTask7.txt";
+        String path = "./src/main/java/chapter10/variantC/task7/outputTask7.txt";
         File outputFile = new File(path);
         Map<String, String> data = new HashMap<>();
 
@@ -25,19 +25,16 @@ public class Main {
         data.put("Lucas", "1227832");
 
 
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile));
-            for (Map.Entry<String, String> value : data.entrySet()) {
-                if (value.getValue().charAt(0) == '1' || value.getValue().charAt(0) == '6') {
-                    writer.write(value.getKey());
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {
+            for (Map.Entry<String, String> entry : data.entrySet()) {
+                char value = entry.getValue().charAt(0);
+                if (value == '1' || value == '6') {
+                    writer.write(entry.getKey());
                     writer.write(" ");
-                    writer.write(value.getValue());
+                    writer.write(entry.getValue());
                     writer.write(System.lineSeparator());
                 }
             }
-            writer.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
     }
 }

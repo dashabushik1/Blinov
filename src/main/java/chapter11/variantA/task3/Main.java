@@ -12,8 +12,8 @@ import java.util.stream.Stream;
 
 public class Main {
 
-    public static void main(String[] args) {
-        Path mainDirectory = Paths.get("/Users/daryabushik/Desktop/files");
+    public static void main(String[] args) throws IOException {
+        Path mainDirectory = Paths.get("/Users/daryabushik/JAVA/Blinov");
 
         try (Stream<Path> stream = Files.walk(mainDirectory, Integer.MAX_VALUE)) {
             List<String> collect = stream
@@ -21,8 +21,6 @@ public class Main {
                     .sorted()
                     .toList();
             collect.forEach(System.out::println);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
     }
 }
